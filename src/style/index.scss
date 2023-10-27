@@ -18,4 +18,10 @@
 
 .page {
 	background-color: $main-bg-color;
+	width: 100%;
+	height: 100%;
+}
+
+#root {
+	padding: 69px;
 }
