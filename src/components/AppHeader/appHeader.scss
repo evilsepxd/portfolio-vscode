@@ -24,6 +24,7 @@
 	position: absolute;
 	top: 0;
 	left: 0;
+	width: 100%;
 	
 	display: grid;
 	grid-template: auto / 311px auto 153px;
@@ -51,6 +52,7 @@
 	}
 	&__contact {
 		position: relative;
+
 		border-left: 1px solid $border-color;
 		padding: 17px 23px;
 		

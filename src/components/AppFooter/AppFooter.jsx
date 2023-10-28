@@ -4,6 +4,8 @@ import vkIconSrc from '../../assets/icons/Frame-1.svg';
 import tgIconSrc from '../../assets/icons/Frame.svg';
 import gitHubIconSrc from '../../assets/icons/github.svg';
 
+import './appFooter.scss';
+
 const AppFooter = () => {
 	return (
 		<header className="footer">
