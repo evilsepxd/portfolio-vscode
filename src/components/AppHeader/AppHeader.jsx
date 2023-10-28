@@ -1,4 +1,6 @@
-import { Link, NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
+
+import './appHeader.scss';
 
 const AppHeader = () => {
 	return (
@@ -7,19 +9,23 @@ const AppHeader = () => {
 				peter-koval
 			</div>
 			<nav className="header__nav">
-				<NavLink className='header__link'>
+				<NavLink to='/' className='header__link'>
 					_hello
+					<span></span>
 				</NavLink>
-				<NavLink className='header__link'>
+				<NavLink to='/about' className='header__link'>
 					_about-me
+					<span></span>
 				</NavLink>
-				<NavLink className='header__link'>
+				<NavLink to='/projects' className='header__link'>
 					_projects
+					<span></span>
 				</NavLink>
 			</nav>
-			<Link className="header__contact">
+			<NavLink to='/contact' className="header__contact">
 				_contact-me
-			</Link>
+				<span></span>
+			</NavLink>
 		</header>
 	);
 }

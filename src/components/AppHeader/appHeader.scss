@@ -1,0 +1,64 @@
+@import '../../style/variables';
+
+@mixin span-link-active {
+	span {
+		position: absolute;
+		left: 0;
+		bottom: 0;
+
+		width: 0%;
+		height: 3px;
+		background-color: $link-span-color;
+
+		transition: .5s width;
+	}
+	&.active {
+		color: $link-active-color;
+		span {
+			width: 101%;
+		}
+	}
+}
+
+.header {
+	position: absolute;
+	top: 0;
+	left: 0;
+	
+	display: grid;
+	grid-template: auto / 311px auto 153px;
+
+	border-bottom: 1px solid $border-color;
+	&__name {
+		padding: 17px 22px;
+		border-right: 1px solid $border-color;
+	}
+	&__nav {
+		display: flex;
+	}
+	&__link {
+		position: relative;
+		display: block;
+		padding: 17px 23px;
+
+		border-right: 1px solid $border-color;
+		@include span-link-active;
+		transition: .2s color;
+		&:hover {
+			text-decoration: none;
+			color: $link-active-color;
+		}
+	}
+	&__contact {
+		position: relative;
+		border-left: 1px solid $border-color;
+		padding: 17px 23px;
+		
+		@include span-link-active;
+		transition: .2s color;
+		&:hover {
+			text-decoration: none;
+			color: $link-active-color;
+		}
+	}
+}

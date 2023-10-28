@@ -16,12 +16,30 @@
 	background-color: $root-bg-color;
 }
 
-.page {
-	background-color: $main-bg-color;
-	width: 100%;
-	height: 100%;
+a {
+	text-decoration: none;
+	color: $main-text-color;
+	&:hover {
+		text-decoration: underline;
+	}
+}
+
+body {
+	background-color: $root-bg-color;
+	padding: 69px;
+
+	height: 100vh;
 }
 
 #root {
-	padding: 69px;
+	position: relative;
+	height: 100%;
+
+	border-radius: 8px;
+	border: 1px solid $border-color;
+	background: $main-bg-color;
+}
+
+.page {
+	height: 100%;
 }
