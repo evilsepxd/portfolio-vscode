@@ -12,14 +12,12 @@
 		position: relative;
 		grid-column: 2 / 3;
 		grid-row: 1 / 3;
-
-		width: 200px;
-		height: 400px;
 	}
 	&__bg {
 		position: absolute;
 		top: -127px;
 		left: -50px;
+		z-index: 1;
 	}
 	&__titles {
 		align-self: flex-end;
