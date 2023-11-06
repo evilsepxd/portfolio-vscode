@@ -1,8 +1,8 @@
 import { Link } from "react-router-dom";
 
-import vkIconSrc from '../../assets/icons/vk.svg';
-import tgIconSrc from '../../assets/icons/telegram.svg';
-import gitHubIconSrc from '../../assets/icons/github.svg';
+import vkIconSrc from '../../assets/icons/helloPage/vk.svg';
+import tgIconSrc from '../../assets/icons/helloPage/telegram.svg';
+import gitHubIconSrc from '../../assets/icons/helloPage/github.svg';
 
 import './appFooter.scss';
 

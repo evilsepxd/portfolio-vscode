@@ -8,8 +8,8 @@ import listenForDirectionChange from './js/functions/listenForDirectionChange';
 import Snake from './js/classes/snake';
 import Food from './js/classes/food';
 
-import bgGreenBlurSrc from '../../assets/img/bg-green-blur.svg';
-import bgBlueBlurSrc from '../../assets/img/bg-blue-blur.svg';
+import bgGreenBlurSrc from '../../assets/img/helloPage/bg-green-blur.svg';
+import bgBlueBlurSrc from '../../assets/img/helloPage/bg-blue-blur.svg';
 import boltUpLeftSrc from './assets/img/bolt-up-left.svg';
 import boltUpRighttSrc from './assets/img/bolt-up-right.svg';
 import boltDownLeftSrc from './assets/img/bolt-down-left.svg';
