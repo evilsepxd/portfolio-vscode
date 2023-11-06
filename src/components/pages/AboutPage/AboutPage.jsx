@@ -1,11 +1,15 @@
-
+import { NavLink } from "react-router-dom";
 
 function AboutPage() {
 
 	return (
 		<>
-			<section className="page">
-				
+			<section className="about page">
+				<nav className="about__nav">
+					<NavLink >
+
+					</NavLink>
+				</nav>
 			</section>
 		</>
 	)

@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 
-import vkIconSrc from '../../assets/icons/Frame-1.svg';
-import tgIconSrc from '../../assets/icons/Frame.svg';
+import vkIconSrc from '../../assets/icons/vk.svg';
+import tgIconSrc from '../../assets/icons/telegram.svg';
 import gitHubIconSrc from '../../assets/icons/github.svg';
 
 import './appFooter.scss';
@@ -13,14 +13,14 @@ const AppFooter = () => {
 				find me in:
 			</div>
 			<div className="footer__links">
-				<Link className="footer__link">
+				<Link to='https://vk.com/ssssenselessss' className="footer__link">
 					<img src={vkIconSrc} alt="vk" className="footer__icon" />
 				</Link>
-				<Link className="footer__link">
+				<Link to='https://t.me/sense_lesss' className="footer__link">
 					<img src={tgIconSrc} alt="telegram" className="footer__icon" />
 				</Link>
 			</div>
-			<Link className="footer__user">
+			<Link to='https://github.com/evilsepxd' className="footer__user">
 				<div className="footer__user-text">
 					@evilsepxd
 				</div>
