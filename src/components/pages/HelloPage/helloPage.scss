@@ -10,12 +10,15 @@
 	gap: 81px 130px;
 	&__bg {
 		position: absolute;
-		top: -127px;
-		left: -50px;
-		bottom: -140px;
-		right: -210px;
-
 		z-index: -1;
+		&_green {
+			left: -200px;
+			top: -250px;
+		}
+		&_blue {
+			top: 0px;
+			left: 50px;
+		}
 	}
 	&__titles {
 		align-self: flex-end;

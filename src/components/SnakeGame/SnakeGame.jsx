@@ -8,7 +8,8 @@ import listenForDirectionChange from './js/functions/listenForDirectionChange';
 import Snake from './js/classes/snake';
 import Food from './js/classes/food';
 
-import bgBlurSrc from '../../assets/img/bg-blurs.svg';
+import bgGreenBlurSrc from '../../assets/img/bg-green-blur.svg';
+import bgBlueBlurSrc from '../../assets/img/bg-blue-blur.svg';
 import boltUpLeftSrc from './assets/img/bolt-up-left.svg';
 import boltUpRighttSrc from './assets/img/bolt-up-right.svg';
 import boltDownLeftSrc from './assets/img/bolt-down-left.svg';
@@ -135,7 +136,6 @@ function SnakeGame() {
 	const renderFood = () => {
 		const resFood = [];
 		for (let i = 0; i < foodAmountInit; i++) {
-			console.log(foodAmount.current);
 			resFood.push(
 				<img 
 					key={i} 
@@ -159,7 +159,8 @@ function SnakeGame() {
 
 	return (
 		<div className="game">
-			<img src={bgBlurSrc} alt="bg-blur" className="hello__bg" />
+			<img src={bgGreenBlurSrc} alt="bg-blur" className="hello__bg hello__bg_green" />
+			<img src={bgBlueBlurSrc} alt="bg-blur" className="hello__bg hello__bg_blue" />
 
 			<div className="game__field">
 				<canvas className="canvas" ref={canvas} width="240" height="405"></canvas>

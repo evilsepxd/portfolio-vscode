@@ -1,3 +1,5 @@
+
+
 import SnakeGame from '../../SnakeGame/SnakeGame';
 
 import './helloPage.scss';
@@ -25,7 +27,9 @@ const HelloPage = () => {
 					<span className="const">const</span>
 					<span className="const-name"> githubLink </span>
 					<span>= </span>
-					<a href='https://evilsepxd.github.io/snake/' className="const-value">&quot;https://evilsepxd.github.io/snake/&quot;</a>
+					<a href='https://evilsepxd.github.io/snake/' className="const-value">
+						&quot;https://evilsepxd.github.io/snake/&quot;
+					</a>
 				</div>
 			</div>
 			<SnakeGame/>
