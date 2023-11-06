@@ -1,0 +1,30 @@
+@import '../../../style/variables';
+
+.about {
+	position: relative;
+	padding-left: 68px;
+
+	display: grid;
+	grid-template: auto / 243px 1fr 1fr;
+	&__navlink.active {
+		g {
+			opacity: 1;
+		}
+	}
+	&__nav {
+		position: absolute;
+		top: 54.8px;
+		left: 0;
+		height: auto;
+
+		padding: 18px 20px 0 24px;
+
+		display: flex;
+		flex-direction: column;
+		gap: 33px;
+	}
+	&__files {
+		display: flex;
+		flex-direction: column;
+	}
+}

@@ -1,0 +1,21 @@
+@import '../../../../style/variables.scss';
+
+.folders {
+	border-right: 1px solid $border-color;
+	border-left: 1px solid $border-color;
+	border-bottom: 1px solid $border-color;
+	&__current {
+		color: $link-active-color;
+		padding: 10px 0 10px 15px;
+		border-bottom: 1px solid $border-color;
+	}
+	&__list {
+		padding: 22px 0 0 17px;
+	}
+	&__item {
+		padding-bottom: 8px;
+	}
+	&__item.active {
+		color: $link-active-color;
+	}
+}

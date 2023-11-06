@@ -1,0 +1,19 @@
+@import '../../style/variables.scss';
+
+.contacts {
+	flex-grow: 1;
+
+	border-right: 1px solid $border-color;
+	border-left: 1px solid $border-color;
+	&__title {
+		color: $link-active-color;
+		padding: 10px 0 10px 15px;
+		border-bottom: 1px solid $border-color;
+	}
+	&__list {
+		padding: 22px 0 0 17px;
+	}
+	&__item {
+		padding-bottom: 8px;
+	}
+}

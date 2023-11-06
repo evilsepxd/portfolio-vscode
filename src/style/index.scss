@@ -24,6 +24,16 @@ a {
 	}
 }
 
+button {
+	border: none;
+	background: none;
+	cursor: pointer;
+}
+
+ul {
+	list-style-type: none;
+}
+
 body {
 	background-color: $root-bg-color;
 	padding: 69px;
@@ -43,4 +53,6 @@ body {
 
 .page {
 	height: 100%;
+	padding-top: 54.8px;
+	padding-bottom: 50.8px;
 }
