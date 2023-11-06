@@ -1,5 +1,5 @@
 function endMode(win) {
-	const container = document.querySelector('.game__field');
+	const container = document.querySelector('.game .game__field');
 	const btn = document.createElement('button');
 	const banner = document.createElement('div');
 

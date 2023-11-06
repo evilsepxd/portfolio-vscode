@@ -1,5 +1,3 @@
-'use strict';
-
 import getDistance from "../functions/getDistance";
 
 class Snake {
@@ -84,20 +82,16 @@ class Snake {
 		this.tailLength += this.tailIncrease;
 		switch (this.dir) {
 			case 'top':
-				this.x = this.x;
 				this.y = this.y - this.tailIncrease;
 				break;
 			case 'bot':
-				this.x = this.x;
 				this.y = this.y + this.tailIncrease;
 				break;
 			case 'left':
 				this.x = this.x - this.tailIncrease;
-				this.y = this.y;
 				break;
 			case 'right':
 				this.x = this.x + this.tailIncrease;
-				this.y = this.y;
 				break;
 		}
 	}
