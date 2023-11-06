@@ -17,18 +17,3 @@
 		background: rgb(255, 177, 118);
 	}
 }
-
-.btn-start-enter {
-	opacity: 0;
-}
-.btn-start-enter-active {
-	opacity: 1;
-	transition: opacity .3s;
-}
-.btn-start-exit {
-	opacity: 1;
-}
-.btn-start-exit-active {
-	opacity: 0;
-	transition: opacity .3s;
-}

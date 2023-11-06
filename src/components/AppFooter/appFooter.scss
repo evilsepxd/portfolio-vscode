@@ -5,6 +5,7 @@
 	bottom: 0;
 	left: 0;
 	width: 100%;
+	z-index: 10;
 	
 	display: grid;
 	grid-template: auto / 151px auto 161px;
@@ -33,5 +34,11 @@
 		gap: 5px;
 
 		border-left: 1px solid $border-color;
+		
+		transition: .2s color;
+		&:hover {
+			text-decoration: none;
+			color: $link-active-color;
+		}
 	}
 }
