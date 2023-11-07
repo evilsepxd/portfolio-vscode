@@ -2,6 +2,7 @@
 
 import Folders from './Folders/Folders';
 import Contacts from '../../Contacts/Contacts';
+import Tabs from '../../Tabs/Tabs';
 import InfoBlock from './InfoBlock/InfoBlock';
 import Snippets from './Snippets/Snippets';
 
@@ -13,6 +14,7 @@ function AboutPage() {
 	// nav - навигация между блоками с информацией. управляет стейтом, который меняет отображение блоков с инфой
 	// Folders - папками с информацией, меняется в завис. от стейта
 	// div.contacts - статичный
+	// Tabs - владки с открытыми ранее файлами
 	// InfoBlock - блок с инфой, меняется в завис. от стейта
 	// div.code-snippets - статичный, сниппеты кода
 
@@ -64,8 +66,11 @@ function AboutPage() {
 					<Contacts />
 				</div>
 
+				<Tabs text='personal-info' className='about__tabs' />
+
 				<InfoBlock />
 
+				<div className="about__empty"></div>
 				<Snippets />
 			</section>
 		</>

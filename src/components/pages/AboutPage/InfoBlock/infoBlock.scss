@@ -1,0 +1,15 @@
+.info {
+	position: relative;
+	grid-row: 2 / 3;
+	grid-column: 2 / 3;
+
+	display: flex;
+	gap: 40px;
+	align-items: start;
+	justify-content: center;
+
+	padding: 18px 50px 18px 38px;
+	&__nums {
+		text-align: right;
+	}
+}

@@ -1,0 +1,16 @@
+@import '../../../../style/variables';
+
+.snippets {
+	position: relative;
+	padding: 18px 66.5px 0 40.5px;
+
+	border-left: 1px solid $border-color;
+	&__comment {
+		margin-bottom: 28px;
+	}
+	&__item {
+		margin-top: 30px;
+
+		border: 1px solid $border-color;
+	}
+}

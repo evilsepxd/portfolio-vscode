@@ -1,0 +1,21 @@
+@import '../../style/variables';
+
+.scroll {
+	position: absolute;
+	right: 0;
+	top: 0;
+
+	height: 100%;
+	width: 26px;
+	border-left: 1px solid $border-color;
+	&__bar {
+		position: absolute;
+		top: 5px;
+		left: 50%;
+		transform: translateX(-50%);
+
+		width: 18.5px;
+		height: 7px;
+		background: $main-text-color;
+	}
+}

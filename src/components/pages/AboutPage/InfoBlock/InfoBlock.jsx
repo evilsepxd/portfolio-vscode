@@ -1,5 +1,7 @@
 
 
+import Scroll from '../../../Scroll/Scroll';
+
 import './infoBlock.scss';
 
 import { useRef, useState, useEffect } from "react";
@@ -35,7 +37,7 @@ function InfoBlock() {
 		
 		for (let i = 0; i < lines; i++) {
 			lineNums.push(
-				<li className="info__line-num">
+				<li className="info__line-num" key={i}>
 					{ i + 1 }
 				</li>
 			);
@@ -54,6 +56,7 @@ function InfoBlock() {
 			<div className="info__text" ref={textRef}>
 				{ text }
 			</div>
+			<Scroll />
 		</div>
 	);
 }
