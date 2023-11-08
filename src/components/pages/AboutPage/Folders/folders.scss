@@ -1,21 +1,64 @@
 @import '../../../../style/variables.scss';
 
+@mixin btn-style {
+	width: 100%;
+	text-align-last: left;
+	color: $main-text-color;
+
+	transition: .3s all;
+	&:hover {
+		color: $link-active-color;
+	}
+}
+
 .folders {
 	border-right: 1px solid $border-color;
 	border-left: 1px solid $border-color;
 	border-bottom: 1px solid $border-color;
 	&__current {
+		display: flex;
+		align-items: center;
+		justify-content: start;
+		gap: 11px;
+
 		color: $link-active-color;
 		padding: 10px 0 10px 15px;
 		border-bottom: 1px solid $border-color;
 	}
 	&__list {
-		padding: 22px 0 0 17px;
+		padding: 22px 0 20px 17px;
+		display: flex;
+		flex-direction: column;
+		justify-content: start;
+		gap: 9px;
 	}
-	&__item {
-		padding-bottom: 8px;
+	&__btn {
+		margin-bottom: 9px;
+		@include btn-style;
+		&-name {
+			margin-left: 13px;
+			display: inline-flex;
+			align-items: center;
+			justify-content: start;
+			gap: 9px;
+		}
 	}
-	&__item.active {
-		color: $link-active-color;
+	&__folder {
+		margin-left: 22px;
+
+		display: flex;
+		flex-direction: column;
+		justify-content: start;
+		gap: 9px;
+	}
+	&__file {
+		&-btn {
+			display: flex;
+			align-items: center;
+			justify-content: start;
+			gap: 9px;
+
+			@include btn-style;
+		}
 	}
 }

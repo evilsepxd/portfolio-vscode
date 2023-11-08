@@ -1,6 +1,6 @@
 .page-enter {
 	opacity: 0;
-	transform: scale(1.1);
+	transform: scale(.9);
 }
  
 .page-enter-active {
@@ -16,6 +16,6 @@
  
 .page-exit-active {
 	opacity: 0;
-	transform: scale(0.9);
+	transform: scale(1.1);
 	transition: all 300ms;
 }
