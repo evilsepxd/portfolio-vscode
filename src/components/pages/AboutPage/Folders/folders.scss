@@ -15,24 +15,39 @@
 	border-right: 1px solid $border-color;
 	border-left: 1px solid $border-color;
 	border-bottom: 1px solid $border-color;
+	&__item {
+		transition: .3s all;
+		max-height: 22.2px;
+		overflow: hidden;
+		.folders__btn-arrow {
+			transition: .3s all;
+		}
+		&.active {
+			.folders__btn-arrow {
+				transform: rotate(90deg);
+			}
+		}
+	}
 	&__current {
 		display: flex;
 		align-items: center;
 		justify-content: start;
 		gap: 11px;
+		width: 100%;
 
 		color: $link-active-color;
 		padding: 10px 0 10px 15px;
 		border-bottom: 1px solid $border-color;
 	}
 	&__list {
-		padding: 22px 0 20px 17px;
+		padding: 22px 0 20px 12px;
 		display: flex;
 		flex-direction: column;
 		justify-content: start;
 		gap: 9px;
 	}
 	&__btn {
+		padding-left: 5px;
 		margin-bottom: 9px;
 		@include btn-style;
 		&-name {

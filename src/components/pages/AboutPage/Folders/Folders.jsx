@@ -1,6 +1,6 @@
 
 
-import PersonalFolders from './PersonalFolders';
+import Folder from './Folder';
 
 import { useSelector } from 'react-redux';
 
@@ -20,7 +20,34 @@ function Folders() {
 					<div className="folders__current-text">{ infoType }</div>
 				</button>
 				<ul className='folders__list'>
-					<PersonalFolders />
+					<Folder
+						folders={[
+							{
+								name: 'bio',
+								files: [
+									'high-school',
+									'university'
+								]
+							},
+							{
+								name: 'interests',
+								files: [
+									'high-school',
+									'university'
+								]
+							},
+							{
+								name: 'education',
+								files: [
+									'high-school',
+									'high-school',
+									'high-school',
+									'high-school',
+									'university'
+								]
+							}
+						]}
+					/>
 				</ul>
 			</div>
 		</>
