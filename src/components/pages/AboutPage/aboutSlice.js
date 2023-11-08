@@ -1,7 +1,8 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-	infoType: 'professional'
+	infoType: 'professional',
+	currentFile: 'high-school'
 }
 
 const aboutSlice = createSlice({
@@ -10,12 +11,16 @@ const aboutSlice = createSlice({
 	reducers: {
 		changeInfoType: (state, action) => {
 			state.infoType = action.payload
-		}
+		},
+		setCurrentFile: (state, action) => {
+			state.currentFile = action.payload
+		},
 	}
 });
 
 export const {
-	changeInfoType
+	changeInfoType,
+	setCurrentFile
 } = aboutSlice.actions;
 
 export default aboutSlice.reducer;

@@ -1,6 +1,9 @@
 
 
+import { useDispatch } from 'react-redux';
 import { useRef, useEffect } from 'react';
+
+import { setCurrentFile } from '../aboutSlice';
 
 import arrowIconSrc from '../../../../assets/icons/aboutPage/folder-arrow.svg';
 
@@ -16,8 +19,9 @@ function Folder({ folders }) {
 	const foldersBtnRefs = useRef([]);
 	const foldersRefs = useRef([]);
 
-	useEffect(() => {
+	const dispatch = useDispatch();
 
+	useEffect(() => {
 		foldersBtnRefs.current.forEach((btn, i) => {
 			btn.addEventListener('click', (e) => {
 				if (e.currentTarget === btn) {
@@ -52,7 +56,11 @@ function Folder({ folders }) {
 								{
 									folder.files.map((file, i) => {
 										return (
-											<li key={i} className='folders__file'>
+											<li
+												key={i}
+												className='folders__file'
+												onClick={() => dispatch(setCurrentFile(file))}
+											>
 												<button className="folders__file-btn">
 													<img src={fileIconSrc} alt="file" className="folders__file-icon" />
 													<div className="folders__file-text">{file}</div>

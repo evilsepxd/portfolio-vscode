@@ -42,6 +42,7 @@
 		flex-direction: column;
 
 		grid-row: 1 / 3;
+		overflow-y: hidden;
 	}
 	&__empty {
 		border-bottom: 1px solid $border-color;
