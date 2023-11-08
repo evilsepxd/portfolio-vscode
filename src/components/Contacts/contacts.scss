@@ -2,16 +2,29 @@
 
 .contacts {
 	flex-grow: 1;
+	overflow: hidden;
+	transition: .3s all;
+	&:not(.active) {
+		.contacts__btn-icon {
+			transform: rotate(-90deg);
+		}
+	}
+	&__btn {
+		display: flex;
+		align-items: center;
+		justify-content: start;
+		gap: 11px;
+		width: 100%;
 
-	border-right: 1px solid $border-color;
-	border-left: 1px solid $border-color;
-	&__title {
 		color: $link-active-color;
 		padding: 10px 0 10px 15px;
 		border-bottom: 1px solid $border-color;
+		&-icon {
+			transition: .3s all;
+		}
 	}
 	&__list {
-		padding: 22px 0 0 17px;
+		padding: 20px 0 0 17px;
 	}
 	&__item {
 		padding-bottom: 8px;

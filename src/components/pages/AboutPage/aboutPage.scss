@@ -43,6 +43,8 @@
 
 		grid-row: 1 / 3;
 		overflow-y: hidden;
+		border-right: 1px solid $border-color;
+		border-left: 1px solid $border-color;
 	}
 	&__empty {
 		border-bottom: 1px solid $border-color;
