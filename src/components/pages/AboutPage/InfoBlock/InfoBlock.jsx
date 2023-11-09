@@ -9,31 +9,17 @@ import { useRef, useState, useEffect } from "react";
 function InfoBlock() {
 
 	const textRef = useRef(null);
-	const [lineNums, setLineNums] = useState([]);
+	const [lineNums, setLineNums] = useState([
+		<li className="info__line-num" key={0}>
+			1
+		</li>
+	]);
 
-	const text = `
-		/**
-		 * About me
-		 * I have 5 years of еxperience in web
-		 * development lorem ipsum dolor sit amet, 
-		 * consectetur adipiscing elit, sed do eiusmod
-		 * tempor incididunt ut labore et dolore
-		 * magna aliqua. Ut enim ad minim veniam,
-		 * quis nostrud exercitation ullamco laboris
-		 * nisi ut aliquip ex ea commodo consequat.
-		 * Duis aute irure dolor in reprehenderit in
-		 *
-		 * Duis aute irure dolor in reprehenderit in
-		 * voluptate velit esse cillum dolore eu fugiat 
-		 * nulla pariatur. Excepteur sint occaecat 
-		 * officia deserunt mollit anim id est laborum.
-		 */
-	`;
+	const text = 'Обо мне. Я - начинающий front-end разработчик. Сейчас учусь на 1 курсе магистратуры в НИУ "МЭИ" по профилю проектировщика электросетей, ранее окончил бакалавриат по тому же направлению. Программированием начал увлекаться еще со школы, но не всерьёз, делая длительные перерывы и не зная, в какую сторону развиваться. Изучал python, C++, также и front-end разработку, программировал для себя arduino. Не так давно одногруппник вновь напомнил мне о мире программирования, предложив пройти курс по веб-разработке. Теперь я погрузился в нее с головой.';
 
-	const makeNumbers = () => {
+	useEffect(() => {
+		const lines = textRef.current.getClientRects().length;
 		const lineNums = [];
-		const lineHeight = 16;
-		const lines = Math.floor(textRef.current.scrollHeight / lineHeight);
 		
 		for (let i = 0; i < lines; i++) {
 			lineNums.push(
@@ -44,17 +30,15 @@ function InfoBlock() {
 		}
 
 		setLineNums(lineNums);
-	}
-
-	useEffect(makeNumbers, []);
+	}, []);
 
 	return (
 		<div className="info">
 			<ul className="info__nums">
 				{ lineNums }
 			</ul>
-			<div className="info__text" ref={textRef}>
-				{ text }
+			<div className="info__text">
+				<span ref={textRef}>{ text }</span>
 			</div>
 			<Scroll />
 		</div>

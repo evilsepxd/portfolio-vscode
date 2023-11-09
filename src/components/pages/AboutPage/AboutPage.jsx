@@ -86,7 +86,6 @@ function AboutPage() {
 
 			<div className="about__files">
 				<Folders />
-
 				<Contacts />
 			</div>
 

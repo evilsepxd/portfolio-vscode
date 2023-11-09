@@ -9,7 +9,13 @@
 	justify-content: center;
 
 	padding: 18px 50px 18px 38px;
+
+	overflow: hidden;
 	&__nums {
 		text-align: right;
+	}
+	&__text {
+		line-height: normal;
+		font-size: 16px;
 	}
 }
