@@ -1,4 +1,5 @@
 
+import { Highlighter } from "rc-highlight";
 
 import Scroll from '../../../Scroll/Scroll';
 
@@ -16,30 +17,48 @@ function Snippets() {
 	const snippets = [
 		{
 			time: '2 weeks',
-			text: `
-				import avatarImgSrc from '../../../../assets/img/aboutPage/avatar.jpeg';
-				import detailsIconSrc from '../../../../assets/icons/aboutPage/comments-icon.svg';
-				import starIconSrc from '../../../../assets/icons/aboutPage/star.svg';
-				import starFilledIconSrc from '../../../../assets/icons/aboutPage/star-filled.svg';
-			`
+			text:
+`export const apiSlice = createApi({
+  reducerPath: '/api',
+  baseQuery: fetchBaseQuery({ baseUrl }),
+  tagTypes: ['Characters', 'Episodes'],
+  endpoints: builder => ({
+    getCharacters: builder.query({
+      query: ({
+        page,
+        name,
+        status,
+        species,
+        gender
+      }) => {
+        if (name) request += \`&name=\${name}\`;
+        if (status) request += \`&status=\${status}\`;
+        if (species) request += \`&species=\${species}\`;
+        if (gender) request += \`&gender=\${gender}\`;
+        console.log(request);
+        return request;
+      },
+      providesTags: ['Characters']
+    })
+  })
+});`
 		},
 		{
 			time: '3 months',
-			text: `
-				const handleClick = (e, dataType) => {
-					const t = e.target;
-			
-					dispatch(changeInfoType(dataType));
-			
-					btnRefs.current.forEach(btn => {
-						btn.parentNode.classList.remove('active');
-			
-						if (t === btn) {
-							t.parentNode.classList.add('active');
-						}
-					});
-				}
-			`
+			text:
+`const handleClick = (e, dataType) => {
+	const t = e.target;
+
+	dispatch(changeInfoType(dataType));
+
+	btnRefs.current.forEach(btn => {
+		btn.parentNode.classList.remove('active');
+
+		if (t === btn) {
+			t.parentNode.classList.add('active');
+		}
+	});
+}`
 		}
 	]
 
@@ -90,7 +109,9 @@ function Snippet({ time, text, id }) {
 				</div>
 			</div>
 			<div className="snippets__text">
-				{ text }
+				<Highlighter copyToClipBoard={false}>
+					{ text }
+				</Highlighter>
 			</div>
 		</div>
 	);
