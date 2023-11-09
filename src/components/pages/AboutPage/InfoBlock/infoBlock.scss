@@ -4,7 +4,7 @@
 	grid-column: 2 / 3;
 
 	display: flex;
-	gap: 16px;
+	gap: 14px;
 	align-items: start;
 	justify-content: center;
 
@@ -13,7 +13,7 @@
 	overflow: hidden;
 	&__nums {
 		text-align: right;
-		padding-right: 24px;
+		padding-right: 26px;
 	}
 	&__comments {
 		text-align: right;

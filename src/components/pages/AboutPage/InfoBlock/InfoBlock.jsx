@@ -2,6 +2,8 @@
 
 import Scroll from '../../../Scroll/Scroll';
 
+import getText from './infos';
+
 import './infoBlock.scss';
 
 import { useRef, useState, useEffect } from "react";
@@ -21,7 +23,7 @@ function InfoBlock() {
 		</li>
 	]);
 
-	const text = 'Обо мне. Я - начинающий front-end разработчик. Сейчас учусь на 1 курсе магистратуры в НИУ "МЭИ" по профилю проектировщика электросетей, ранее окончил бакалавриат по тому же направлению. Программированием начал увлекаться еще со школы, но не всерьёз, делая длительные перерывы и не зная, в какую сторону развиваться. Изучал python, C++, также и front-end разработку, программировал для себя arduino. Не так давно одногруппник вновь напомнил мне о мире программирования, предложив пройти курс по веб-разработке. Теперь я погрузился в нее с головой.';
+	const text = getText('aboutMe');
 
 	useEffect(() => {
 		const lines = textRef.current.getClientRects().length;
