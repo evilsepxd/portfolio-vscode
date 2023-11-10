@@ -1,5 +1,5 @@
 
-import { useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Highlighter } from "rc-highlight";
 
 import avatarImgSrc from '../../../../assets/img/aboutPage/avatar.jpeg';
@@ -87,6 +87,12 @@ function Snippets() {
 }
 
 function Snippet({ time, text, id }) {
+	const [starred, setStarred] = useState(false);
+
+	const toggleStar = () => {
+		setStarred(old => !old);
+	}
+
 	return(
 		<div className="snippets__item">
 			<div className="snippets__header">
@@ -104,9 +110,9 @@ function Snippet({ time, text, id }) {
 						<img src={detailsIconSrc} alt="" className="snippets__btns-icon" />
 						<div className="snippets__btns-text">details</div>
 					</button>
-					<button className="snippets__stars">
-						<img src={starIconSrc} alt="" className="snippets__btns-icon" />
-						<div className="snippets__btns-text">stars</div>
+					<button className="snippets__stars" onClick={toggleStar}>
+						<img src={starred ? starFilledIconSrc : starIconSrc} alt="" className="snippets__btns-icon" />
+						<div className="snippets__btns-text">{starred ? 'starred' : 'unstarred'}</div>
 					</button>
 				</div>
 			</div>
