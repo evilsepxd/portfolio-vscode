@@ -63,4 +63,30 @@
 			}
 		}
 	}
+	&__text {
+		.main-highlighter-relative {
+			border: 1px solid $border-color;
+			background: $code-bg-color;
+		}
+		.rc-hl-code-line {
+			.high-keyword {
+				color: $code-high-keyword;
+			}
+			.keyword {
+				color: $code-keyword;
+			}
+			.none {
+				color: $main-text-color;
+			}
+			.punctuation {
+				color: $code-punctuation;
+			}
+			.function {
+				color: $code-high-keyword;
+			}
+			.bracket-0 {
+				color: $link-span-color;
+			}
+		}
+	}
 }

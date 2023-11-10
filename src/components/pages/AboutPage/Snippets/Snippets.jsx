@@ -1,5 +1,5 @@
 
-import { useEffect, useRef } from "react";
+import { useRef } from "react";
 import { Highlighter } from "rc-highlight";
 
 import avatarImgSrc from '../../../../assets/img/aboutPage/avatar.jpeg';
@@ -82,7 +82,6 @@ function Snippets() {
 					})
 				}
 			</div>
-			{/* <Scroll elem={containerRef} parent={containerRef} /> */}
 		</div>
 	);
 }
