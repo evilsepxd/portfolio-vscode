@@ -1,11 +1,19 @@
 @import '../../../../style/variables';
+@import '../../../../style/mixins';
+
+* {
+	scrollbar-width: thin;
+	scrollbar-color: blue orange;
+}
 
 .snippets {
 	position: relative;
-	padding: 18px 66px 0 40px;
+	padding: 18px 46px 18px 40px;
 
 	border-left: 1px solid $border-color;
-	overflow: hidden;
+	overflow: auto;
+
+	@include scrollbar;
 	&__comment {
 		margin-bottom: 28px;
 	}
@@ -54,10 +62,5 @@
 				text-decoration: underline;
 			}
 		}
-	}
-	&__text {
-		// .rc-hl-code-line {
-		// 	overflow: hidden;
-		// }
 	}
 }

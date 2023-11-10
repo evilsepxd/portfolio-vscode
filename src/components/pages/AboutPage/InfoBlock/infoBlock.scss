@@ -1,3 +1,6 @@
+@import '../../../../style/variables';
+@import '../../../../style/mixins';
+
 .info {
 	position: relative;
 	grid-row: 2 / 3;
@@ -10,7 +13,8 @@
 
 	padding: 18px 50px 18px 38px;
 
-	overflow: hidden;
+	overflow: auto;
+	@include scrollbar;
 	&__nums {
 		text-align: right;
 		padding-right: 26px;
@@ -19,6 +23,3 @@
 		text-align: right;
 	}
 }
-/* fdsfdf
- * dasfdsf
- */

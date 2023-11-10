@@ -1,7 +1,5 @@
 
 
-import Scroll from '../../../Scroll/Scroll';
-
 import getText from './infos';
 
 import './infoBlock.scss';
@@ -63,7 +61,6 @@ function InfoBlock() {
 				
 				<span ref={textRef}>{ text }</span>
 			</div>
-			<Scroll />
 		</div>
 	);
 }

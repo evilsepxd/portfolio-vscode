@@ -1,7 +1,6 @@
 
+import { useEffect, useRef } from "react";
 import { Highlighter } from "rc-highlight";
-
-import Scroll from '../../../Scroll/Scroll';
 
 import avatarImgSrc from '../../../../assets/img/aboutPage/avatar.jpeg';
 import detailsIconSrc from '../../../../assets/icons/aboutPage/comments-icon.svg';
@@ -14,6 +13,8 @@ import './snippets.scss';
 // чтобы при клике на star, у пользователя оставалось это в памяти
 
 function Snippets() {
+	const containerRef = useRef(null);
+
 	const snippets = [
 		{
 			time: '2 weeks',
@@ -47,23 +48,23 @@ function Snippets() {
 			time: '3 months',
 			text:
 `const handleClick = (e, dataType) => {
-	const t = e.target;
+  const t = e.target;
 
-	dispatch(changeInfoType(dataType));
+  dispatch(changeInfoType(dataType));
 
-	btnRefs.current.forEach(btn => {
-		btn.parentNode.classList.remove('active');
+  btnRefs.current.forEach(btn => {
+    btn.parentNode.classList.remove('active');
 
-		if (t === btn) {
-			t.parentNode.classList.add('active');
-		}
-	});
+    if (t === btn) {
+      t.parentNode.classList.add('active');
+    }
+  });
 }`
 		}
 	]
 
 	return (
-		<div className="snippets">
+		<div className="snippets" ref={containerRef}>
 			<div className="snippets__comment">
 				// Code snippet showcase:
 			</div>
@@ -81,7 +82,7 @@ function Snippets() {
 					})
 				}
 			</div>
-			<Scroll />
+			{/* <Scroll elem={containerRef} parent={containerRef} /> */}
 		</div>
 	);
 }
@@ -91,7 +92,9 @@ function Snippet({ time, text, id }) {
 		<div className="snippets__item">
 			<div className="snippets__header">
 				<div className="snippets__bio">
-					<img src={avatarImgSrc} alt="avatar" className="snippets__img" />
+					<a href='https://github.com/evilsepxd' className="snippets__img-wrapper">
+						<img src={avatarImgSrc} alt="avatar" className="snippets__img" />
+					</a>
 					<div className="snippets__bio-inner">
 						<a href='https://github.com/evilsepxd' className="snippets__name">@evilsepxd</a>
 						<div className="snippets__time">Created { time } ago</div>
