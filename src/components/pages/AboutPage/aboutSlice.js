@@ -22,8 +22,8 @@ const aboutSlice = createSlice({
 			state.openedFiles.push(action.payload)
 		},
 		deleteOpenedFile: (state, action) => {
-			const i = action.payload;
-			state.openedFiles = [...state.openedFiles.splice(0, i), ...state.openedFiles.splice(i + 1)]
+			const i = state.openedFiles.indexOf(action.payload);
+			state.openedFiles = [...state.openedFiles.slice(0, i), ...state.openedFiles.slice(i + 1)]
 		}
 	}
 });

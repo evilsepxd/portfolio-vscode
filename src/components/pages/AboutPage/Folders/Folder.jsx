@@ -1,6 +1,6 @@
 
 
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useRef } from 'react';
 
 import { setCurrentFile, newOpenedFile } from '../aboutSlice';
@@ -19,6 +19,7 @@ function Folder({ folders }) {
 	const foldersBtnRefs = useRef([]);
 
 	const dispatch = useDispatch();
+	const openedFiles = useSelector(state => state.about.openedFiles);
 
 	const handleClick = (e) => {
 		foldersBtnRefs.current.forEach((btn, i) => {
@@ -53,15 +54,16 @@ function Folder({ folders }) {
 								{
 									folder.files.map((file, i) => {
 										return (
-											<li
-												key={i}
-												className='folders__file'
+											<li className='folders__file' key={i} >
+												<button
+												className="folders__file-btn"
 												onClick={() => {
 													dispatch(setCurrentFile(file));
-													dispatch(newOpenedFile(file));
+													if (openedFiles.indexOf(file) < 0) {
+														dispatch(newOpenedFile(file));
+													}
 												}}
-											>
-												<button className="folders__file-btn">
+												>
 													<img src={fileIconSrc} alt="file" className="folders__file-icon" />
 													<div className="folders__file-text">{file}</div>
 												</button>

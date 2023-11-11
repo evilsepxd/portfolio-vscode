@@ -9,7 +9,16 @@
 	overflow-x: auto;
 	@include scrollbar;
 	&::-webkit-scrollbar {
-		height: 10px;
+		height: 4px;
+	}
+	&::-webkit-scrollbar-track {
+		background: $main-bg-color;
+		border-left: none;
+	}
+	&::-webkit-scrollbar-thumb {
+		background: $main-text-color;
+		border: 1px solid rgba(0, 0, 0, 0);
+		background-clip: padding-box;
 	}
 	&__about {
 		grid-column: 2 / 3;
@@ -31,6 +40,9 @@
 		path {
 			transition: .3s all;
 		}
+		&.active {
+			color: $link-active-color;
+		}
 	}
 	&__icon {
 		position: absolute;
@@ -40,5 +52,10 @@
 		display: flex;
 		justify-content: center;
 		align-items: center;
+		z-index: 100;
+		transition: .3s all;
+		&:hover {
+			background: rgba(0, 0, 0, .2);
+		}
 	}
 }

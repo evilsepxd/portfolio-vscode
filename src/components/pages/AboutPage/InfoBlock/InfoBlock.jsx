@@ -11,6 +11,7 @@ function InfoBlock() {
 
 	const textRef = useRef(null);
 	const currentFile = useSelector(state => state.about.currentFile);
+	const openedFiles = useSelector(state => state.about.openedFiles);
 
 	const [lineNums, setLineNums] = useState([
 		<li className="info__line-num" key={0}>
@@ -23,13 +24,15 @@ function InfoBlock() {
 		</li>
 	]);
 
-	const text = getText(currentFile);
+	const text = openedFiles.length
+			? getText(currentFile)
+			: 'Выберите файл, чтобы увидеть информацию';
 
 	useEffect(() => {
 		const lines = textRef.current.getClientRects().length;
 		const lineNums = [];
 		const comments = [];
-		let text = '*';
+		let line = '*';
 		
 		for (let i = 0; i <= lines; i++) {
 			lineNums.push(
@@ -37,19 +40,19 @@ function InfoBlock() {
 					{ i + 1 }
 				</li>
 			);
-			if (i === 0) text = '/*';
-			else if (i === lines) text = '*/';
-			else text = '*';
+			if (i === 0) line = '/*';
+			else if (i === lines) line = '*/';
+			else line = '*';
 			comments.push(
 				<li className="info__line-comment" key={i}>
-					{ text }
+					{ line }
 				</li>
 			);
 		}
 
 		setComments(comments);
 		setLineNums(lineNums);
-	}, [currentFile]);
+	}, [text]);
 
 	return (
 		<div className="info">
