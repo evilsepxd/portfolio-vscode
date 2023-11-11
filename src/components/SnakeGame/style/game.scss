@@ -36,6 +36,16 @@
 			right: 12px;
 		}
 	}
+	&__skip {
+		position: absolute;
+		right: 35px;
+		bottom: 35px;
+
+		padding: 10px 14px;
+		border-radius: 8px;
+		border: 1px solid #FFF;
+		color: #fff;
+	}
 }
 
 .arrows {

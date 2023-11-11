@@ -2,6 +2,7 @@ import StartMode from './js/modes/StartMode';
 import endMode from './js/modes/endMode';
 
 import { useEffect, useRef, useState } from 'react';
+import { Link } from 'react-router-dom';
 
 import listenForDirectionChange from './js/functions/listenForDirectionChange';
 
@@ -184,6 +185,9 @@ function SnakeGame() {
 					{ renderFood() }
 				</div>
 			</div>
+			<Link to='/about' className="game__skip">
+				skip
+			</Link>
 		</div>
 	);
 }
