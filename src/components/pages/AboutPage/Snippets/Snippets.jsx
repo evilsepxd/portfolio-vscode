@@ -93,6 +93,19 @@ function Snippet({ time, text, id }) {
 		setStarred(old => !old);
 	}
 
+	useEffect(() => {
+		const starredLocal = JSON.parse(localStorage.getItem(`starred${id}`));
+		if (starredLocal === null) {
+			localStorage.setItem(`starred${id}`, false);
+		} else if (starredLocal === true) {
+			setStarred(true);
+		}
+	}, []);
+
+	useEffect(() => {
+		localStorage.setItem(`starred${id}`, starred);
+	}), [starred]
+
 	return(
 		<div className="snippets__item">
 			<div className="snippets__header">
