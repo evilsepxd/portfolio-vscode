@@ -89,4 +89,31 @@
 			}
 		}
 	}
+	&__details {
+		position: relative;
+
+		margin-top: 19px;
+		padding-top: 17px;
+		border-top: 1px solid $border-color;
+
+		padding-right: 110px;
+
+		height: 0;
+		overflow: hidden;
+
+		transition: .3s all;
+		&-close {
+			position: absolute;
+			top: 19px;
+			right: 0;
+			path {
+				transition: .3s all;
+			}
+			&:hover {
+				path {
+					fill: $link-active-color;
+				}
+			}
+		}
+	}
 }

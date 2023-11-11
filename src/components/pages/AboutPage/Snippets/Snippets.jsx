@@ -36,30 +36,41 @@ function Snippets() {
         if (status) request += \`&status=\${status}\`;
         if (species) request += \`&species=\${species}\`;
         if (gender) request += \`&gender=\${gender}\`;
-        console.log(request);
         return request;
       },
       providesTags: ['Characters']
     })
   })
-});`
+});`,
+			details: 'Это пример создания фрагмента sliceApi из моего проекта "rick-and-morty", где используется redux. В примере ипсользуется RTK Query для создания запросов на сервер, используя Rick-And-Morty API. Когда в store диспетчится action, он принимает несколько необязательных аргументов, которые в итоге влияют на результат ответа сервера. Этими аргументами являются фильтры, с которыми взаимодействует пользователь.'
 		},
 		{
 			time: '3 months',
 			text:
-`const handleClick = (e, dataType) => {
-  const t = e.target;
+`const [process, setProcess] = useState('waiting');
 
-  dispatch(changeInfoType(dataType));
+const request = useCallback(async (url, method = 'GET', body = null, headers = {'Content-Type': 'application/json'}) => {
 
-  btnRefs.current.forEach(btn => {
-    btn.parentNode.classList.remove('active');
+  setProcess('loading');
 
-    if (t === btn) {
-      t.parentNode.classList.add('active');
+  try {
+    const response = await fetch(url, {method, body, headers});
+
+    if (!response.ok) {
+      throw new Error(\`Couldn't fetch \${url}, status: \${response.status}\`);
     }
-  });
-}`
+
+    const data = await response.json();
+
+    setProcess('confirmed');
+    return data;
+  } catch(e) {
+    setProcess('error');
+    throw e;
+  }
+
+}, []);`,
+			details: 'Фрагмент кастомного хука useHTTP, используемого для отправки запросов для сервер, и обновляющим state в зависимости от состояния запроса. Использовался в моем проекте "Marvel".'
 		}
 	]
 
@@ -75,6 +86,7 @@ function Snippets() {
 							<Snippet
 								time={snippet.time}
 								text={snippet.text}
+								details={snippet.details}
 								id={i}
 								key={i}
 							/>
@@ -86,11 +98,22 @@ function Snippets() {
 	);
 }
 
-function Snippet({ time, text, id }) {
+function Snippet({ time, text, details, id }) {
 	const [starred, setStarred] = useState(false);
+	const detailsRef = useRef(null);
 
 	const toggleStar = () => {
 		setStarred(old => !old);
+	}
+
+	const toggleDetails = () => {
+		const detailsHeight = detailsRef.current.scrollHeight;
+		const currentHeight = +detailsRef.current.style.height.slice(0, -2);
+		if (currentHeight) {
+			detailsRef.current.style.height = 0;
+		} else {
+			detailsRef.current.style.height = detailsHeight + 'px';
+		}
 	}
 
 	useEffect(() => {
@@ -119,7 +142,7 @@ function Snippet({ time, text, id }) {
 					</div>
 				</div>
 				<div className="snippets__btns">
-					<button className="snippets__details">
+					<button className="snippets__details-btn" onClick={toggleDetails}>
 						<img src={detailsIconSrc} alt="" className="snippets__btns-icon" />
 						<div className="snippets__btns-text">details</div>
 					</button>
@@ -133,6 +156,23 @@ function Snippet({ time, text, id }) {
 				<Highlighter copyToClipBoard={false}>
 					{ text }
 				</Highlighter>
+			</div>
+			<div className="snippets__details" ref={detailsRef}>
+				<div className="snippets__details-text">
+					{ details }
+				</div>
+				<button className="snippets__details-close" onClick={toggleDetails}>
+					<svg width="19" height="19" viewBox="0 0 19 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+						<g clipPath="url(#clip0_64_1646)">
+							<path d="M9.34771 8.71879L13.0602 5.00629L14.1207 6.06679L10.4082 9.77929L14.1207 13.4918L13.0602 14.5523L9.34771 10.8398L5.63521 14.5523L4.57471 13.4918L8.28721 9.77929L4.57471 6.06679L5.63521 5.00629L9.34771 8.71879Z" fill="#607B96"/>
+						</g>
+						<defs>
+							<clipPath id="clip0_64_1646">
+								<rect width="18" height="18" fill="white" transform="translate(0.347656 0.779297)"/>
+							</clipPath>
+						</defs>
+					</svg>
+				</button>
 			</div>
 		</div>
 	);
