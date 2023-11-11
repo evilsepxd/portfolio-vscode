@@ -1,9 +1,9 @@
 
 
 import { useDispatch } from 'react-redux';
-import { useRef, useEffect } from 'react';
+import { useRef } from 'react';
 
-import { setCurrentFile } from '../aboutSlice';
+import { setCurrentFile, newOpenedFile } from '../aboutSlice';
 
 import arrowIconSrc from '../../../../assets/icons/aboutPage/folder-arrow.svg';
 
@@ -17,27 +17,24 @@ function Folder({ folders }) {
 	const folderIcons = [ firstFolderIconSrc, secondFolderIconSrc, thirdFolderIconSrc ];
 	const foldersItemRefs = useRef([]);
 	const foldersBtnRefs = useRef([]);
-	const foldersRefs = useRef([]);
 
 	const dispatch = useDispatch();
 
-	useEffect(() => {
+	const handleClick = (e) => {
 		foldersBtnRefs.current.forEach((btn, i) => {
-			btn.addEventListener('click', (e) => {
-				if (e.currentTarget === btn) {
-					if (foldersItemRefs.current[i].classList.contains('active')) {
-						foldersItemRefs.current[i].classList.remove('active');
-						foldersItemRefs.current[i].style.maxHeight = '22.2px';
-					} else {
-						const itemHeight = foldersItemRefs.current[i].scrollHeight;
+			if (e.currentTarget === btn) {
+				if (foldersItemRefs.current[i].classList.contains('active')) {
+					foldersItemRefs.current[i].classList.remove('active');
+					foldersItemRefs.current[i].style.maxHeight = '22.2px';
+				} else {
+					const itemHeight = foldersItemRefs.current[i].scrollHeight;
 
-						foldersItemRefs.current[i].classList.add('active');
-						foldersItemRefs.current[i].style.maxHeight = itemHeight + 'px';
-					}
+					foldersItemRefs.current[i].classList.add('active');
+					foldersItemRefs.current[i].style.maxHeight = itemHeight + 'px';
 				}
-			});
+			}
 		});
-	}, []);
+	}
 
 	return (
 		<>
@@ -45,21 +42,24 @@ function Folder({ folders }) {
 				folders.map((folder, i) => {
 					return (
 						<li ref={elem => foldersItemRefs.current[i] = elem} key={i} className="folders__item">
-							<button ref={elem => foldersBtnRefs.current[i] = elem} className='folders__btn'>
+							<button ref={elem => foldersBtnRefs.current[i] = elem} onClick={handleClick} className='folders__btn'>
 								<img src={arrowIconSrc} alt="arrow" className="folders__btn-arrow" />
 								<div className="folders__btn-name">
 									<img src={folderIcons[i]} alt="folder" className="folders__btn-icon" />
 									<div className="folders__btn-text">{folder.name}</div>
 								</div>
 							</button>
-							<ul ref={elem => foldersRefs.current[i] = elem} className="folders__folder">
+							<ul className="folders__folder">
 								{
 									folder.files.map((file, i) => {
 										return (
 											<li
 												key={i}
 												className='folders__file'
-												onClick={() => dispatch(setCurrentFile(file))}
+												onClick={() => {
+													dispatch(setCurrentFile(file));
+													dispatch(newOpenedFile(file));
+												}}
 											>
 												<button className="folders__file-btn">
 													<img src={fileIconSrc} alt="file" className="folders__file-icon" />

@@ -1,5 +1,5 @@
 @mixin scrollbar {
-	scrollbar-width: 26px;
+	scrollbar-width: 20px;
 	scrollbar-color: $border-color $main-bg-color;
 	&::-webkit-scrollbar {
 		width: 20px;

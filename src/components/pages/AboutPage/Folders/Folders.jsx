@@ -27,6 +27,62 @@ function Folders() {
 		});
 	}, []);
 
+	const folders = {
+		professional: [
+			{
+				name: 'skills',
+				files: [
+					'projects',
+					'stack',
+				]
+			},
+			{
+				name: 'education',
+				files: [
+					'languages',
+					'education',
+					'courses'
+				]
+			},
+			{
+				name: 'experience',
+				files: [
+					'experience'
+				]
+			}
+		],
+		personal: [
+			{
+				name: 'bio',
+				files: [
+					'aboutMe',
+					'residence'
+				]
+			},
+			{
+				name: 'contacts',
+				files: [
+					'contacts'
+				]
+			}
+		],
+		hobbies: [
+			{
+				name: 'hobbies',
+				files: [
+					'hobbies'
+				]
+			},
+			{
+				name: 'interests',
+				files: [
+					'moviesAndGames',
+					'sports'
+				]
+			}
+		]
+	}
+
 	return (
 		<>
 			<div className="folders active" ref={containerRef}>
@@ -36,32 +92,7 @@ function Folders() {
 				</button>
 				<ul className='folders__list'>
 					<Folder
-						folders={[
-							{
-								name: 'bio',
-								files: [
-									'high-school',
-									'university'
-								]
-							},
-							{
-								name: 'interests',
-								files: [
-									'high-school',
-									'university'
-								]
-							},
-							{
-								name: 'education',
-								files: [
-									'high-school',
-									'high-school',
-									'high-school',
-									'high-school',
-									'university'
-								]
-							}
-						]}
+						folders={folders[infoType]}
 					/>
 				</ul>
 			</div>

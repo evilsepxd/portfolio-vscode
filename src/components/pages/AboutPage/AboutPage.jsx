@@ -1,7 +1,7 @@
 
 
 import { useRef } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 import { changeInfoType } from './aboutSlice';
 
@@ -18,6 +18,8 @@ function AboutPage() {
 
 	const dispatch = useDispatch();
 	const btnRefs = useRef([]);
+
+	const openedFiles = useSelector(state => state.about.openedFiles);
 
 	// nav - навигация между блоками с информацией. управляет стейтом, который меняет отображение блоков с инфой
 	// Folders - папками с информацией, меняется в завис. от стейта
@@ -43,7 +45,7 @@ function AboutPage() {
 	return (
 		<section className="about page">
 			<nav className="about__nav">
-				<button className='about__navlink active' onClick={(e) => handleClick(e, 'professional')} >
+				<button className='about__navlink' onClick={(e) => handleClick(e, 'professional')} >
 					<div ref={el => btnRefs.current[0] = el} className="fill"></div>
 					<svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
 						<g opacity="0.4" clipPath="url(#clip0_64_1623)">
@@ -56,7 +58,7 @@ function AboutPage() {
 						</defs>
 					</svg>
 				</button>
-				<button className='about__navlink' onClick={(e) => handleClick(e, 'personal')} >
+				<button className='about__navlink active' onClick={(e) => handleClick(e, 'personal')} >
 					<div ref={el => btnRefs.current[1] = el} className="fill"></div>
 					<svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
 						<g opacity="0.4" clipPath="url(#clip0_64_1620)">
@@ -89,7 +91,7 @@ function AboutPage() {
 				<Contacts />
 			</div>
 
-			<Tabs text='personal-info' className='about__tabs' />
+			<Tabs files={openedFiles} className='about__tabs' />
 
 			<InfoBlock />
 

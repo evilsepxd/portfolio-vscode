@@ -1,11 +1,22 @@
 @import '../../style/variables';
+@import '../../style/mixins';
 
 .tabs {
 	border-bottom: 1px solid $border-color;
+	white-space: nowrap;
+
+	overflow-y: hidden;
+	overflow-x: auto;
+	@include scrollbar;
+	&::-webkit-scrollbar {
+		height: 10px;
+	}
 	&__about {
 		grid-column: 2 / 3;
 	}
 	&__item {
+		display: inline-block;
+
 		position: relative;
 		width: 218px;
 		border-right: 1px solid $border-color;

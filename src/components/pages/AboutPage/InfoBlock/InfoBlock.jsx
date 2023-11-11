@@ -1,14 +1,16 @@
 
 
+import { useRef, useState, useEffect } from "react";
+import { useSelector } from "react-redux";
+
 import getText from './infos';
 
 import './infoBlock.scss';
 
-import { useRef, useState, useEffect } from "react";
-
 function InfoBlock() {
 
 	const textRef = useRef(null);
+	const currentFile = useSelector(state => state.about.currentFile);
 
 	const [lineNums, setLineNums] = useState([
 		<li className="info__line-num" key={0}>
@@ -21,7 +23,7 @@ function InfoBlock() {
 		</li>
 	]);
 
-	const text = getText('aboutMe');
+	const text = getText(currentFile);
 
 	useEffect(() => {
 		const lines = textRef.current.getClientRects().length;
@@ -47,7 +49,7 @@ function InfoBlock() {
 
 		setComments(comments);
 		setLineNums(lineNums);
-	}, []);
+	}, [currentFile]);
 
 	return (
 		<div className="info">
