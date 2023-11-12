@@ -1,4 +1,4 @@
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 
 import Project from './Project';
 import { getActiveFilters } from '../projectsSlice';
@@ -9,14 +9,18 @@ import imgSrc from '../../../../assets/img/projectsPage/bg.jpg';
 import './projects.scss';
 
 function Projects() {
+	const dispatch = useDispatch();
+
 	const activeFilters = useSelector(getActiveFilters);
 
-
+	const handleClick = () => {
+		dispatch(clearFilters());
+	}
 
 	return (
 		<>
 			<div className="tabs tabs_projects">
-				<button className="tabs__item" onClick={}>
+				<button className="tabs__item" onClick={handleClick}>
 					<div className="tabs__name">{ activeFilters[0] ? activeFilters.join(', ') : 'No filters' }</div>
 					<svg
 						width="19"
