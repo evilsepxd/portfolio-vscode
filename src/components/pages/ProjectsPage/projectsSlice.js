@@ -29,7 +29,12 @@ const initialState = {
 			iconSrc: ReduxIconSrc
 		}
 	],
-	activeFilters: []
+	activeFilters: [
+		{
+			name: 'HTML',
+			iconSrc: HTMLIconSrc
+		}
+	]
 }
 
 const projectsSlice = createSlice({
