@@ -1,0 +1,82 @@
+@import '../../../../style/variables.scss';
+@import '../../../../style/mixins.scss';
+
+.projects {
+	&__inner {
+		padding: 60px 125px;
+
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: start;
+		gap: 40px;
+		overflow: auto;
+
+		@include scrollbar;
+	}
+	&__title {
+		color: $blue-text-color;
+		font-weight: 700;
+		&-descr {
+			margin-left: 10px;
+			color: $main-text-color;
+			font-weight: 400;
+		}
+	}
+	&__item {
+		width: 370px;
+	}
+	&__wrapper {
+		margin-top: 15px;
+		position: relative;
+		border: 1px solid $border-color;
+		border-radius: 15px;
+	}
+	&-filters {
+		position: absolute;
+		top: 19px;
+		right: 19px;
+
+		display: flex;
+		align-items: center;
+		justify-content: end;
+		gap: 10px;
+		&__item {
+			width: 28px;
+			height: 28px;
+			background: #86E1F9;
+
+			display: flex;
+			align-items: center;
+			justify-content: center;
+		}
+	}
+	&__img {
+		width: 100%;
+		height: 145px;
+		img {
+			border-radius: 15px 15px 0 0;
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+		}
+	}
+	&__descr {
+		padding: 24px 32px 32px;
+		border-radius: 0 0 15px 15px;
+
+		border-top: 1px solid $border-color;
+		background: $code-bg-color;
+		&-text {
+			font-size: 18px;
+		}
+	}
+	&__link {
+		display: inline-block;
+		margin-top: 22px;
+		padding: 10px 14px;
+
+		border-radius: 8px;
+		background: $btn-bg-color;
+		color: $link-active-color;
+	}
+}

@@ -7,7 +7,7 @@
 	display: grid;
 	grid-template-rows: 0fr;
 
-	padding: 17px 22px;
+	padding: 15px 22px;
 
 	transition: .3s all;
 	border-right: 1px solid $border-color;
@@ -35,6 +35,7 @@
 		overflow: hidden;
 	}
 	&__item {
+		padding-left: 2px;
 		position: relative;
 
 		width: 100%;
@@ -53,6 +54,11 @@
 			align-items: center;
 			justify-content: start;
 			gap: 10px;
+		}
+		&:hover {
+			.filters__input-custom {
+				box-shadow: 0 0 0 2px rgba(96, 123, 150, .4);
+			}
 		}
 	}
 	&__icon {
