@@ -1,8 +1,8 @@
-import { useEffect } from 'react';
 import { useSelector } from 'react-redux';
 
 import Project from './Project';
 import { getActiveFilters } from '../projectsSlice';
+import { clearFilters } from '../projectsSlice';
 
 import imgSrc from '../../../../assets/img/projectsPage/bg.jpg';
 
@@ -10,15 +10,13 @@ import './projects.scss';
 
 function Projects() {
 	const activeFilters = useSelector(getActiveFilters);
-	
-	useEffect(() => {
-		console.log(activeFilters);
-	}, [activeFilters]);
+
+
 
 	return (
 		<>
 			<div className="tabs tabs_projects">
-				<div className="tabs__item">
+				<button className="tabs__item" onClick={}>
 					<div className="tabs__name">{ activeFilters[0] ? activeFilters.join(', ') : 'No filters' }</div>
 					<svg
 						width="19"
@@ -37,7 +35,7 @@ function Projects() {
 							</clipPath>
 						</defs>
 					</svg>
-				</div>
+				</button>
 			</div>
 			<div className="projects__inner">
 				<Project

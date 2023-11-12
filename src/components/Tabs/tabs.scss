@@ -30,6 +30,8 @@
 	&__item {
 		display: inline-block;
 
+		text-align: left;
+		color: $main-text-color;
 		position: relative;
 		min-width: 218px;
 		border-right: 1px solid $border-color;

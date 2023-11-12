@@ -42,6 +42,9 @@ const projectsSlice = createSlice({
 		removeActiveFilter: (state, action) => {
 			const i = state.activeFilters.findIndex(filter => filter.name === action.payload);
 			state.activeFilters = [...state.activeFilters.slice(0, i), ...state.activeFilters.slice(i + 1)]
+		},
+		clearFilters : state => {
+			state.activeFilters = []
 		}
 	}
 });
@@ -53,7 +56,8 @@ export const getActiveFilters = createSelector(
 
 export const {
 	addActiveFilter,
-	removeActiveFilter
+	removeActiveFilter,
+	clearFilters
 } = projectsSlice.actions;
 
 export default projectsSlice.reducer;
