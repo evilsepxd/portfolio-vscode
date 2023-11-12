@@ -1,11 +1,12 @@
 
-
-
-import reactIconSrc from '../../../../assets/icons/projectsPage/react.svg';
+import { useSelector } from 'react-redux';
 
 import './projects.scss';
 
 function Project({ name, id, filters, descr, link, imgSrc }) {
+	
+	const filtersState = useSelector(state => state.projects.filters);
+
 	return (
 		<div className="projects__item">
 			<a href={link} className="projects__title">
@@ -17,10 +18,14 @@ function Project({ name, id, filters, descr, link, imgSrc }) {
 			<div className="projects__wrapper">
 				<div className="projects-filters">
 					{
-						filters.map((item, i) => {
+						filters.map((filter, i) => {
 							return (
 								<div className="projects-filters__item" key={i}>
-									<img src={reactIconSrc} alt="filter" className="projects-filters__icon"/>
+									<img
+										src={filtersState.find(item => item.name === filter).darkIconSrc}
+										alt="filter"
+										className="projects-filters__icon"
+									/>
 								</div>
 							);
 						})

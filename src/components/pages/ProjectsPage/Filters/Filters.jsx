@@ -32,7 +32,12 @@ function Filters() {
 			<form className={`filters${containerState ? ' active' : ''}`} ref={containerRef}>
 				<div className="filters__inner">
 					{
-						filters.map((filter, i) => <Filter name={filter.name} iconSrc={filter.iconSrc} key={i} />)
+						filters.map((filter, i) => <Filter
+							name={filter.name}
+							iconSrc={filter.iconSrc}
+							darkIconSrc={filter.darkIconSrc}
+							key={i}
+						/>)
 					}
 				</div>
 			</form>

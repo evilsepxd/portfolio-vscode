@@ -7,7 +7,7 @@ import { addActiveFilter, removeActiveFilter } from "../projectsSlice";
 import { useRef } from "react";
 import { useDispatch } from "react-redux";
 
-function Filter({ name, iconSrc }) {
+function Filter({ name, iconSrc, darkIconSrc }) {
 
 	const activeFilters = useSelector(getActiveFilters);
 	const checked = activeFilters.includes(name);
@@ -20,7 +20,7 @@ function Filter({ name, iconSrc }) {
 		if (checked) {
 			dispatch(removeActiveFilter(name));
 		} else {
-			dispatch(addActiveFilter({ name, iconSrc }));
+			dispatch(addActiveFilter({ name, iconSrc, darkIconSrc }));
 		}
 	}
 

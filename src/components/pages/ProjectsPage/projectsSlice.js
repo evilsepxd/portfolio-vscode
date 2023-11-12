@@ -6,33 +6,56 @@ import JSIconSrc from '../../../assets/icons/projectsPage/js.svg';
 import ReactIconSrc from '../../../assets/icons/projectsPage/react.svg';
 import ReduxIconSrc from '../../../assets/icons/projectsPage/redux.svg';
 
+import HTMLDarkIconSrc from '../../../assets/icons/projectsPage/html-dark.svg';
+import CSSDarkIconSrc from '../../../assets/icons/projectsPage/css-dark.svg';
+import JSDarkIconSrc from '../../../assets/icons/projectsPage/js-dark.svg';
+import ReactDarkIconSrc from '../../../assets/icons/projectsPage/react-dark.svg';
+import ReduxDarkIconSrc from '../../../assets/icons/projectsPage/redux-dark.svg';
+
+import rickAndMortyImgSrc from '../../../assets/img/projectsPage/rick-and-morty.jpg';
+
 const initialState = {
 	filters: [
 		{
 			name: 'HTML',
-			iconSrc: HTMLIconSrc
+			iconSrc: HTMLIconSrc,
+			darkIconSrc: HTMLDarkIconSrc
 		},
 		{
 			name: 'CSS',
-			iconSrc: CSSIconSrc
+			iconSrc: CSSIconSrc,
+			darkIconSrc: CSSDarkIconSrc
 		},
 		{
 			name: 'JS',
-			iconSrc: JSIconSrc
+			iconSrc: JSIconSrc,
+			darkIconSrc: JSDarkIconSrc
 		},
 		{
 			name: 'React',
-			iconSrc: ReactIconSrc
+			iconSrc: ReactIconSrc,
+			darkIconSrc: ReactDarkIconSrc
 		},
 		{
 			name: 'Redux',
-			iconSrc: ReduxIconSrc
+			iconSrc: ReduxIconSrc,
+			darkIconSrc: ReduxDarkIconSrc
 		}
 	],
 	activeFilters: [
 		{
 			name: 'HTML',
-			iconSrc: HTMLIconSrc
+			iconSrc: HTMLIconSrc,
+			darkIconSrc: HTMLDarkIconSrc
+		}
+	],
+	projects: [
+		{
+			name: 'rick-and-morty',
+			descr: 'Веб-приложение, базирующееся на RickAndMorty API',
+			link: 'https://evilsepxd.github.io/rick-and-morty',
+			imgSrc: rickAndMortyImgSrc,
+			filters: ['HTML', 'CSS', 'JS', 'React', 'Redux'],
 		}
 	]
 }

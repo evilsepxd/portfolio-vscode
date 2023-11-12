@@ -4,14 +4,13 @@ import Project from './Project';
 import { getActiveFilters } from '../projectsSlice';
 import { clearFilters } from '../projectsSlice';
 
-import imgSrc from '../../../../assets/img/projectsPage/bg.jpg';
-
 import './projects.scss';
 
 function Projects() {
 	const dispatch = useDispatch();
 
 	const activeFilters = useSelector(getActiveFilters);
+	const projects = useSelector(state => state.projects.projects);
 
 	const handleClick = () => {
 		dispatch(clearFilters());
@@ -42,30 +41,17 @@ function Projects() {
 				</button>
 			</div>
 			<div className="projects__inner">
-				<Project
-					name='_my-project'
-					id={1}
-					descr='sdf ds fdsf dsf dsfd dfdaxv'
-					link='http://localhost:5173/projects'
-					imgSrc={imgSrc}
-					filters={['react', 'react']}
-				/>
-				<Project
-					name='_my-project'
-					id={1}
-					descr='sdf ds fdsf dsf dsfd dfdaxv'
-					link='http://localhost:5173/projects'
-					imgSrc={imgSrc}
-					filters={['react']}
-				/>
-				<Project
-					name='_my-project'
-					id={1}
-					descr='sdf ds fdsf dsf dsfd dfdaxv'
-					link='http://localhost:5173/projects'
-					imgSrc={imgSrc}
-					filters={['react']}
-				/>
+				{
+					projects.map((project, i) => <Project
+										name={project.name}
+										id={i + 1}
+										descr={project.descr}
+										link={project.link}
+										imgSrc={project.imgSrc}
+										filters={project.filters}
+										key={i}
+									/>)
+				}
 			</div>
 		</>
 	);
