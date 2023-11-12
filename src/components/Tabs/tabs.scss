@@ -31,9 +31,9 @@
 		display: inline-block;
 
 		position: relative;
-		width: 218px;
+		min-width: 218px;
 		border-right: 1px solid $border-color;
-		padding: 10px 0 10px 15px;
+		padding: 10px 40px 10px 15px;
 		cursor: pointer;
 		
 		&:hover {

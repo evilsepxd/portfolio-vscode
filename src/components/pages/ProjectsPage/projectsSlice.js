@@ -1,4 +1,4 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, createSelector } from "@reduxjs/toolkit";
 
 import HTMLIconSrc from '../../../assets/icons/projectsPage/html.svg';
 import CSSIconSrc from '../../../assets/icons/projectsPage/css.svg';
@@ -45,6 +45,11 @@ const projectsSlice = createSlice({
 		}
 	}
 });
+
+export const getActiveFilters = createSelector(
+	state => state,
+	state => state.projects.activeFilters.map(filter => filter.name)
+);
 
 export const {
 	addActiveFilter,
