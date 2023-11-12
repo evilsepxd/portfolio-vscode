@@ -1,12 +1,14 @@
 @import '../../style/variables.scss';
 
 .contacts {
-	flex-grow: 1;
 	overflow: hidden;
 	transition: .3s all;
-	&:not(.active) {
+	&.active {
+		.contacts__inner {
+			grid-template-rows: 1fr;
+		}
 		.contacts__btn-icon {
-			transform: rotate(-90deg);
+			transform: rotate(0);
 		}
 	}
 	&__btn {
@@ -20,11 +22,19 @@
 		padding: 10px 0 10px 15px;
 		border-bottom: 1px solid $border-color;
 		&-icon {
+			transform: rotate(-90deg);
 			transition: .3s all;
 		}
 	}
+	&__inner {
+		display: grid;
+		grid-template-rows: 0fr;
+
+		padding: 20px 17px;
+		transition: .3s all;
+	}
 	&__list {
-		padding: 20px 0 0 17px;
+		overflow: hidden;
 	}
 	&__item {
 		padding-bottom: 8px;

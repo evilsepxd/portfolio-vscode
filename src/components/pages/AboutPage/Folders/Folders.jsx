@@ -2,7 +2,7 @@
 
 import Folder from './Folder';
 
-import { useRef, useEffect } from 'react';
+import { useRef, useState } from 'react';
 import { useSelector } from 'react-redux';
 
 import menuArrowIconSrc from '../../../../assets/icons/aboutPage/menu-arrow.svg';
@@ -12,20 +12,13 @@ import './folders.scss';
 function Folders() {
 	const containerRef = useRef(null);
 	const btnRef = useRef(null);
+	const [contState, setContState] = useState(true);
 	
 	const infoType = useSelector(state => state.about.infoType);
 
-	useEffect(() => {
-		btnRef.current.addEventListener('click', () => {
-			if (containerRef.current.classList.contains('active')) {
-				containerRef.current.classList.remove('active');
-				containerRef.current.style.maxHeight = '41.6px';
-			} else {
-				containerRef.current.classList.add('active');
-				containerRef.current.style.maxHeight = '100%';
-			}
-		});
-	}, []);
+	const handleClick = () => {
+		setContState(old => !old);
+	}
 
 	const folders = {
 		professional: [
@@ -85,16 +78,18 @@ function Folders() {
 
 	return (
 		<>
-			<div className="folders active" ref={containerRef}>
-				<button className="folders__current" ref={btnRef}>
+			<div className={`folders${contState ? ' active' : ''}`} ref={containerRef}>
+				<button className="folders__current" ref={btnRef} onClick={handleClick}>
 					<img src={menuArrowIconSrc} alt="arrow" className="folders__current-icon" />
 					<div className="folders__current-text">{ infoType }</div>
 				</button>
-				<ul className='folders__list'>
-					<Folder
-						folders={folders[infoType]}
-					/>
-				</ul>
+				<div className="folders__inner">
+					<ul className='folders__list'>
+						<Folder
+							folders={folders[infoType]}
+						/>
+					</ul>
+				</div>
 			</div>
 		</>
 	);

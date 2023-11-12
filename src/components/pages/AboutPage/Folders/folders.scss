@@ -17,13 +17,46 @@
 
 	overflow: hidden;
 	transition: .3s all;
-	&:not(.active) {
+	&__current-icon {
+		transform: rotate(-90deg);
+		transition: .3s all;
+	}
+	&.active {
 		.folders__current-icon {
-			transform: rotate(-90deg);
+			transform: rotate(0);
+		}
+		.folders__inner {
+			grid-template-rows: 1fr;
+			padding: 20px 0 20px 12px;
 		}
 	}
-	&__current-icon {
+	&__current {
+		@include collapse-block-title;
+	}
+	&__inner {
+		display: grid;
+		grid-template-rows: 0fr;
 		transition: .3s all;
+		padding: 0;
+	}
+	&__list {
+		display: flex;
+		flex-direction: column;
+		justify-content: start;
+		gap: 9px;
+		overflow: hidden;
+	}
+	&__btn {
+		padding-left: 5px;
+		margin-bottom: 9px;
+		@include btn-style;
+		&-name {
+			margin-left: 13px;
+			display: inline-flex;
+			align-items: center;
+			justify-content: start;
+			gap: 9px;
+		}
 	}
 	&__item {
 		transition: .3s all;
@@ -36,28 +69,6 @@
 			.folders__btn-arrow {
 				transform: rotate(90deg);
 			}
-		}
-	}
-	&__current {
-		@include collapse-block-title;
-	}
-	&__list {
-		padding: 20px 0 20px 12px;
-		display: flex;
-		flex-direction: column;
-		justify-content: start;
-		gap: 9px;
-	}
-	&__btn {
-		padding-left: 5px;
-		margin-bottom: 9px;
-		@include btn-style;
-		&-name {
-			margin-left: 13px;
-			display: inline-flex;
-			align-items: center;
-			justify-content: start;
-			gap: 9px;
 		}
 	}
 	&__folder {

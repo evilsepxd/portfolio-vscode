@@ -43,7 +43,11 @@ function Folder({ folders }) {
 				folders.map((folder, i) => {
 					return (
 						<li ref={elem => foldersItemRefs.current[i] = elem} key={i} className="folders__item">
-							<button ref={elem => foldersBtnRefs.current[i] = elem} onClick={handleClick} className='folders__btn'>
+							<button
+								ref={elem => foldersBtnRefs.current[i] = elem}
+								onClick={handleClick}
+								className='folders__btn'
+							>
 								<img src={arrowIconSrc} alt="arrow" className="folders__btn-arrow" />
 								<div className="folders__btn-name">
 									<img src={folderIcons[i]} alt="folder" className="folders__btn-icon" />
