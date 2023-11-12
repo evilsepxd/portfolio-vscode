@@ -1,0 +1,61 @@
+@import '../../../../style/variables';
+@import '../../../../style/mixins';
+
+.filters {
+	grid-column: 1 / 2;
+
+	display: grid;
+	grid-template-rows: 0fr;
+
+	padding: 17px 22px;
+
+	transition: .3s all;
+	border-right: 1px solid $border-color;
+	&.active {
+		grid-template-rows: 1fr;
+	}
+	&-title {
+		@include collapse-block-title;
+		border-right: 1px solid $border-color;
+		&__arrow {
+			transition: .3s all;
+			transform: rotate(-90deg);
+			&.active {
+				transform: rotate(0);
+			}
+		}
+	}
+	&__inner {
+		display: flex;
+		flex-direction: column;
+		align-items: start;
+		justify-content: start;
+		gap: 17px;
+
+		overflow: hidden;
+	}
+	&__item {
+		position: relative;
+		
+		display: flex;
+		align-items: center;
+		justify-content: start;
+		gap: 24px;
+		&:not(.active) {
+			.filters__icon {
+				opacity: 0.4;
+			}
+		}
+		&-inner {
+			display: flex;
+			align-items: center;
+			justify-content: start;
+			gap: 10px;
+		}
+	}
+	&__icon {
+		width: 24px;
+		height: 24px;
+		transition: .3s all;
+	}
+}

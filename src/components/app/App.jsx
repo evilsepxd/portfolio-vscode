@@ -6,6 +6,7 @@ import AppFooter from '../AppFooter/AppFooter';
 
 import HelloPage from '../pages/HelloPage/HelloPage';
 import AboutPage from '../pages/AboutPage/AboutPage';
+import ProjectsPage from '../pages/ProjectsPage/ProjectsPage';
 
 import './app.scss';	// CSSTransition styles
 
@@ -25,6 +26,7 @@ function App() {
 						<Routes location={location}>
 							<Route path='/' element={<HelloPage/>} />
 							<Route path='/about' element={<AboutPage/>} />
+							<Route path='/projects' element={<ProjectsPage/>} />
 						</Routes>
 					</CSSTransition>
 				</SwitchTransition>

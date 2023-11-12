@@ -14,3 +14,15 @@
 		background-clip: padding-box;
 	}
 }
+
+@mixin collapse-block-title {
+	display: flex;
+	align-items: center;
+	justify-content: start;
+	gap: 11px;
+	width: 100%;
+
+	color: $link-active-color;
+	padding: 10px 0 10px 15px;
+	border-bottom: 1px solid $border-color;
+}
