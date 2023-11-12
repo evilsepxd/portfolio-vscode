@@ -1,15 +1,27 @@
 
+import { addActiveFilter, removeActiveFilter } from "../projectsSlice";
 
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
+import { useDispatch } from "react-redux";
 
 function Filter({ name, iconSrc }) {
 
 	const [checked, setChecked] = useState(false);
 	const inputRef = useRef(null);
+	const dispatch = useDispatch();
+
 
 	const handleFocus = () => {
 		setChecked(old => !old);
 	}
+
+	useEffect(() => {
+		if (checked) {
+			dispatch(addActiveFilter({ name, iconSrc }))
+		} else {
+			dispatch(removeActiveFilter(name))
+		}
+	}, [checked]);
 
 	return (
 		<label
