@@ -1,36 +1,38 @@
 
 
-import { useRef, useEffect, useState } from "react";
+import { useState, useRef } from "react";
 
 function Filter({ name, iconSrc }) {
 
-	const itemRef = useRef(null);
-	const inputRef = useRef(null);
 	const [checked, setChecked] = useState(false);
+	const inputRef = useRef(null);
 
-	const keyboardListener = (e) => {
-		if (document.activeElement === itemRef.current && e.key === 'Enter') {
-			setChecked(old => !old);
-		}
+	const handleFocus = () => {
+		setChecked(old => !old);
 	}
 
-	useEffect(() => {
-		document.addEventListener('keydown', keyboardListener);
-
-		return () => {
-			document.removeEventListener('keydown', keyboardListener);
-		}
-	}, []);
-
 	return (
-		<label htmlFor={name} className="filters__item" tabIndex={0} ref={itemRef} >
+		<label
+			htmlFor={name}
+			className="filters__item"
+			tabIndex={0}
+			onKeyDown={(e) => {
+				if (e.key === ' ' || e.key === 'Enter') {
+					handleFocus();
+				}
+			}}
+			onClick={(e) => {
+				if (e.target === inputRef.current) return;
+				handleFocus();
+			}}
+		>
 			<input
 				type="checkbox"
 				name={name}
 				className="filters__input"
 				id={name}
-				ref={inputRef}
 				checked={checked}
+				ref={inputRef}
 			/>
 			<div className="filters__input-custom"></div>
 			<div className="filters__item-inner">
