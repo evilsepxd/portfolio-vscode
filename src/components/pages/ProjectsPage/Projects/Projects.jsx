@@ -3,14 +3,16 @@ import { useSelector, useDispatch } from 'react-redux';
 import Project from './Project';
 import { getActiveFilters } from '../projectsSlice';
 import { clearFilters } from '../projectsSlice';
+import { getFilteredProjects } from '../projectsSlice';
 
 import './projects.scss';
 
 function Projects() {
+	
 	const dispatch = useDispatch();
 
 	const activeFilters = useSelector(getActiveFilters);
-	const projects = useSelector(state => state.projects.projects);
+	const projects = useSelector(getFilteredProjects);
 
 	const handleClick = () => {
 		dispatch(clearFilters());
@@ -42,7 +44,7 @@ function Projects() {
 			</div>
 			<div className="projects__inner">
 				{
-					projects.map((project, i) => <Project
+					projects?.map((project, i) => <Project
 										name={project.name}
 										id={i + 1}
 										descr={project.descr}

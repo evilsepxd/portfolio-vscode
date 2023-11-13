@@ -65,8 +65,10 @@
 		}
 	}
 	&__descr {
+		position: relative;
 		padding: 24px 32px 32px;
 		border-radius: 0 0 15px 15px;
+		min-height: 166px;
 
 		border-top: 1px solid $border-color;
 		background: $code-bg-color;
@@ -75,8 +77,10 @@
 		}
 	}
 	&__link {
-		display: inline-block;
-		margin-top: 22px;
+		position: absolute;
+		bottom: 32px;
+		left: 32px;
+
 		padding: 10px 14px;
 
 		border-radius: 8px;
