@@ -48,6 +48,21 @@
 			display: flex;
 			align-items: center;
 			justify-content: center;
+			&_HTML {
+				background: $html-bg-icon-color;
+			}
+			&_CSS {
+				background: $css-bg-icon-color;
+			}
+			&_JS {
+				background: $js-bg-icon-color;
+			}
+			&_React {
+				background: $react-bg-icon-color;
+			}
+			&_Redux {
+				background: $redux-bg-icon-color;
+			}
 		}
 		&__icon {
 			width: 20px;

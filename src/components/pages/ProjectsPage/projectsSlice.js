@@ -28,34 +28,46 @@ const initialState = {
 		{
 			name: 'HTML',
 			iconSrc: HTMLIconSrc,
-			darkIconSrc: HTMLDarkIconSrc
+			darkIconSrc: HTMLDarkIconSrc,
+			iconBgClass: 'projects-filters__item_HTML'
 		},
 		{
 			name: 'CSS',
 			iconSrc: CSSIconSrc,
-			darkIconSrc: CSSDarkIconSrc
+			darkIconSrc: CSSDarkIconSrc,
+			iconBgClass: 'projects-filters__item_CSS'
 		},
 		{
 			name: 'JS',
 			iconSrc: JSIconSrc,
-			darkIconSrc: JSDarkIconSrc
+			darkIconSrc: JSDarkIconSrc,
+			iconBgClass: 'projects-filters__item_JS'
 		},
 		{
 			name: 'React',
 			iconSrc: ReactIconSrc,
-			darkIconSrc: ReactDarkIconSrc
+			darkIconSrc: ReactDarkIconSrc,
+			iconBgClass: 'projects-filters__item_React'
 		},
 		{
 			name: 'Redux',
 			iconSrc: ReduxIconSrc,
-			darkIconSrc: ReduxDarkIconSrc
+			darkIconSrc: ReduxDarkIconSrc,
+			iconBgClass: 'projects-filters__item_Redux'
 		}
 	],
 	activeFilters: [
 		{
 			name: 'HTML',
 			iconSrc: HTMLIconSrc,
-			darkIconSrc: HTMLDarkIconSrc
+			darkIconSrc: HTMLDarkIconSrc,
+			iconBgClass: 'projects-filters__item_HTML'
+		},
+		{
+			name: 'CSS',
+			iconSrc: CSSIconSrc,
+			darkIconSrc: CSSDarkIconSrc,
+			iconBgClass: 'projects-filters__item_CSS'
 		}
 	],
 	projects: [

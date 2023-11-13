@@ -20,7 +20,7 @@ function Project({ name, id, filters, descr, link, imgSrc }) {
 					{
 						filters.map((filter, i) => {
 							return (
-								<div className="projects-filters__item" key={i}>
+								<div className={`projects-filters__item projects-filters__item_${filter}`} key={i}>
 									<img
 										src={filtersState.find(item => item.name === filter).darkIconSrc}
 										alt="filter"
