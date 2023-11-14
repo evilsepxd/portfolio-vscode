@@ -26,14 +26,20 @@ function AccountsLinks() {
 			<div className="account-links__inner">
 				<ul className="account-links__list">
 					<li className="account-links__item">
-						<a href="mailto:petrkoval.work@gmail.com" className='account-links__item-link'>
-							petrkoval.work@gmail
+						<a href="https://www.instagram.com/evilsephy1/" className='account-links__item-link'>
+							Instagram account
 							<img src={linkIconSrc} alt="link" className="account-links__item-icon" />
 						</a>
 					</li>
 					<li className="account-links__item">
-						<a href="https://wa.me/79002225868" className='account-links__item-link'>
-							+7900222****
+						<a href="https://steamcommunity.com/id/ev1lseph2/" className='account-links__item-link'>
+							Steam account
+							<img src={linkIconSrc} alt="link" className="account-links__item-icon" />
+						</a>
+					</li>
+					<li className="account-links__item">
+						<a href="https://www.youtube.com/channel/UCq_rFm3RP_L0z1rS_dpbdNg" className='account-links__item-link'>
+							YouTube channel
 							<img src={linkIconSrc} alt="link" className="account-links__item-icon" />
 						</a>
 					</li>
