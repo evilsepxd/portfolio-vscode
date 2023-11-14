@@ -18,6 +18,11 @@ const contactSlice = createSlice({
 		},
 		setMessage: (state, action) => {
 			state.message = action.payload;
+		},
+		clearForm: state => {
+			state.name = '';
+			state.email = '';
+			state.message = '';
 		}
 	}
 });
@@ -38,7 +43,8 @@ export const getMessage = createSelector(
 export const {
 	setName,
 	setEmail,
-	setMessage
+	setMessage,
+	clearForm
 } = contactSlice.actions;
 
 export default contactSlice.reducer;
