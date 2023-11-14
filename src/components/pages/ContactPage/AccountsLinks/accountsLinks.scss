@@ -15,6 +15,7 @@
 		}
 	}
 	&__btn {
+		border-top: 1px solid $border-color;
 		@include collapse-block-title;
 		&-icon {
 			transform: rotate(-90deg);

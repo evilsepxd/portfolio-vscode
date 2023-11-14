@@ -7,7 +7,7 @@
 	&.active {
 		.contacts__inner {
 			grid-template-rows: 1fr;
-			padding: 20px 17px;
+			padding: 20px 12px;
 		}
 		.contacts__btn-icon {
 			transform: rotate(0);
@@ -31,6 +31,14 @@
 		overflow: hidden;
 	}
 	&__item {
-		padding-bottom: 8px;
+		position: relative;
+		margin-bottom: 8px;
+		padding-left: 25px;
+		&-icon {
+			position: absolute;
+			left: 0;
+			top: 50%;
+			transform: translateY(-50%);
+		}
 	}
 }
