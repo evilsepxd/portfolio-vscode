@@ -5,5 +5,54 @@
 	grid-template: 40.6px auto / 311px 1fr 1fr;
 	&__side-bar {
 		grid-row: 1 / 3;
+		border-right: 1px solid $border-color;
+	}
+	&__form {
+		padding: 20px 130px 0;
+		display: flex;
+		flex-direction: column;
+		align-items: start;
+		justify-content: start;
+		
+		border-right: 1px solid $border-color;
+		gap: 24px;
+		&-item {
+			width: 100%;
+		}
+	}
+	&__input {
+		margin-top: 10px;
+		padding: 10px 15px;
+
+		width: 100%;
+		display: block;
+
+		font-size: 16px;
+		border-radius: 8px;
+		border: 1px solid $border-color;
+		background: $code-bg-color;
+		color: $form-text-color;
+
+		transition: .2s all;
+		&_textarea {
+			resize: none;
+			min-height: 145px;
+		}
+		&:focus {
+			border-color: $comment-color;
+			outline: none;
+		}
+		&:hover, &:focus {
+			box-shadow: 0px 0px 0px 2px rgba(96, 123, 150, 0.30);
+		}
+	}
+	&__btn {
+		padding: 10px 14px;
+		border-radius: 8px;
+		background: $btn-bg-color;
+		color: $link-active-color;
+		&:hover {
+			text-decoration: underline;
+		}
 	}
 }

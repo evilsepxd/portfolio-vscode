@@ -3,6 +3,8 @@
 
 import Contacts from '../../Contacts/Contacts';
 import AccountsLinks from './AccountsLinks/AccountsLinks';
+import Tab from './Tab/Tab';
+import Form from './Form/Form';
 
 import './contactPage.scss';
 
@@ -17,6 +19,8 @@ function ContactPage() {
 					<Contacts />
 					<AccountsLinks />
 				</div>
+				<Tab />
+				<Form />
 			</section>
 	);
 }
