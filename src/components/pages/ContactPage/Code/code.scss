@@ -8,6 +8,7 @@
 	justify-content: center;
 
 	overflow-y: scroll;
+	border-left: 1px solid $border-color;
 	@include scrollbar;
 	&__wrapper {
 		display: flex;

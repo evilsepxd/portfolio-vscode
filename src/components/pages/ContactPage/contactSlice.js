@@ -3,7 +3,8 @@ import { createSlice, createSelector } from "@reduxjs/toolkit";
 const initialState = {
 	name: '',
 	email: '',
-	message: ''
+	message: '',
+	status: 'waiting'
 }
 
 const contactSlice = createSlice({
@@ -23,6 +24,9 @@ const contactSlice = createSlice({
 			state.name = '';
 			state.email = '';
 			state.message = '';
+		},
+		setStatus: (state, action) => {
+			state.status = action.payload;
 		}
 	}
 });
@@ -39,12 +43,17 @@ export const getMessage = createSelector(
 	state => state.contact,
 	state => state.message
 );
+export const getStatus = createSelector(
+	state => state.contact,
+	state => state.status
+);
 
 export const {
 	setName,
 	setEmail,
 	setMessage,
-	clearForm
+	clearForm,
+	setStatus
 } = contactSlice.actions;
 
 export default contactSlice.reducer;

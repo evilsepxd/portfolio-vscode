@@ -27,7 +27,6 @@ function Code() {
 		const container = document.querySelector('.code .main-highlighter-relative');
 		const lineHeight = 20.8;
 		const lines = Math.round(container.scrollHeight / lineHeight);
-		console.log(container.scrollHeight);
 		const lineNums = [];
 
 		for (let i = 0; i < lines; i++) {
