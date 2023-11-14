@@ -1,0 +1,42 @@
+@import '../../../../style/variables';
+@import '../../../../style/mixins';
+
+.code {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	overflow-y: scroll;
+	@include scrollbar;
+	&__wrapper {
+		display: flex;
+		gap: 40px;
+	}
+	&__nums {
+		text-align: right;
+	}
+	.main-highlighter-relative {
+		padding: 0;
+		background: none;
+	}
+	.highlighter-container-vs-code {
+		overflow: hidden !important;
+	}
+	code span {
+		font-family: 'Fira Code', monospace;
+	}
+	.rc-hl-code-line {
+		.keyword, .arrow {
+			color: $code-high-keyword;
+		}
+		.none, .var, .function {
+			color: $blue-text-color;
+		}
+		.bracket-0, .bracket-1, .punctuation {
+			color: $main-text-color;
+		}
+		.string {
+			color: $link-span-color;
+		}
+	}
+}

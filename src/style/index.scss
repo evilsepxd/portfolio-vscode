@@ -32,6 +32,12 @@ button {
 	cursor: pointer;
 }
 
+input, textarea {
+	font-family: 'Fira Code', monospace;
+	font-size: 16px;
+	font-weight: 450;
+}
+
 ul {
 	list-style-type: none;
 }

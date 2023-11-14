@@ -72,10 +72,7 @@
 			.high-keyword {
 				color: $code-high-keyword;
 			}
-			.keyword {
-				color: $code-keyword;
-			}
-			.none {
+			.none, .keyword {
 				color: $main-text-color;
 			}
 			.punctuation {
