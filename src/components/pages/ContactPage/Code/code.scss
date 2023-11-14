@@ -2,8 +2,9 @@
 @import '../../../../style/mixins';
 
 .code {
+	padding: 100px 0 20px;
 	display: flex;
-	align-items: center;
+	align-items: start;
 	justify-content: center;
 
 	overflow-y: scroll;
@@ -14,6 +15,9 @@
 	}
 	&__nums {
 		text-align: right;
+	}
+	&__text {
+		max-width: 510px;
 	}
 	.main-highlighter-relative {
 		padding: 0;

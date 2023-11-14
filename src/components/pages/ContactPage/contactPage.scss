@@ -1,4 +1,5 @@
 @import '../../../style/variables';
+@import '../../../style/mixins';
 
 .contact {
 	display: grid;
@@ -42,6 +43,10 @@
 		&_textarea {
 			resize: none;
 			min-height: 145px;
+			@include scrollbar;
+			&::-webkit-scrollbar-track {
+				border-radius: 0 8px 8px 0;
+			}
 		}
 		&::selection {
 			background: $comment-color;

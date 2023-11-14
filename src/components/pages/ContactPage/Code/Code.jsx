@@ -1,12 +1,21 @@
 
 
 import { useState, useEffect } from 'react';
+import { useSelector } from 'react-redux';
 
 import { Highlighter } from 'rc-highlight';
+
+import { getName, getEmail, getMessage } from '../contactSlice';
 
 import './code.scss';
 
 function Code() {
+	const name = useSelector(getName);
+	const email = useSelector(getEmail);
+	const message = useSelector(getMessage);
+
+	const date = new Date();
+	const currentDate = date.toLocaleString('en-US', { month: 'long', weekday: 'short', day: 'numeric' });
 
 	const [lineNums, setLineNums] = useState([
 		<li className="code__number" key={0}>
@@ -15,19 +24,22 @@ function Code() {
 	]);
 
 	useEffect(() => {
-		const lines = document.querySelectorAll('.code .rc-hl-code-line');
+		const container = document.querySelector('.code .main-highlighter-relative');
+		const lineHeight = 20.8;
+		const lines = Math.round(container.scrollHeight / lineHeight);
+		console.log(container.scrollHeight);
 		const lineNums = [];
 
-		lines.forEach((line, i) => {
+		for (let i = 0; i < lines; i++) {
 			lineNums.push(
 				<li className="code__number" key={i}>
 					{ i + 1 }
 				</li>
 			);
-		});
+		}
 
 		setLineNums(lineNums);
-	}, []);
+	}, [name, email, message]);
 	
 	return (
 		<div className="code">
@@ -40,10 +52,10 @@ function Code() {
 {`const button = document.querySelector('#sendBtn');
 
 const message = {
-  name: "Jonathan Davis",
-  email: "",
-  message: "",
-  date: "Thu 21 Apr"
+  name: "${name}",
+  email: "${email}",
+  message: "${message}",
+  date: "${currentDate}"
 }
 
 button.addEventListener('click', () => {
