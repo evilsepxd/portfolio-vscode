@@ -1,0 +1,54 @@
+@import '../../../../style/variables';
+@import '../../../../style/mixins';
+
+.account-links {
+	overflow: hidden;
+	transition: .3s all;
+	&.active {
+		.account-links__inner {
+			grid-template-rows: 1fr;
+			padding: 20px 17px;
+		
+		}
+		.account-links__btn-icon {
+			transform: rotate(0);
+		}
+	}
+	&__btn {
+		@include collapse-block-title;
+		&-icon {
+			transform: rotate(-90deg);
+			transition: .3s all;
+		}
+	}
+	&__inner {
+		display: grid;
+		grid-template-rows: 0fr;
+
+		padding: 0;
+		transition: .3s all;
+	}
+	&__list {
+		overflow: hidden;
+	}
+	&__item {
+		position: relative;
+		padding-left: 25px;
+		margin-bottom: 9px;
+		&:hover {
+			.account-links__item-link {
+				color: $link-active-color;
+				text-decoration: none;
+			}
+		}
+		&-link {
+			transition: .3s all;
+		}
+		&-icon {
+			position: absolute;
+			left: 0;
+			top: 50%;
+			transform: translateY(-50%);
+		}
+	}
+}

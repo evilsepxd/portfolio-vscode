@@ -1,4 +1,5 @@
-@import '../../style/variables.scss';
+@import '../../style/variables';
+@import '../../style/mixins';
 
 .contacts {
 	overflow: hidden;
@@ -6,21 +7,14 @@
 	&.active {
 		.contacts__inner {
 			grid-template-rows: 1fr;
+			padding: 20px 17px;
 		}
 		.contacts__btn-icon {
 			transform: rotate(0);
 		}
 	}
 	&__btn {
-		display: flex;
-		align-items: center;
-		justify-content: start;
-		gap: 11px;
-		width: 100%;
-
-		color: $link-active-color;
-		padding: 10px 0 10px 15px;
-		border-bottom: 1px solid $border-color;
+		@include collapse-block-title;
 		&-icon {
 			transform: rotate(-90deg);
 			transition: .3s all;
@@ -30,7 +24,7 @@
 		display: grid;
 		grid-template-rows: 0fr;
 
-		padding: 20px 17px;
+		padding: 0;
 		transition: .3s all;
 	}
 	&__list {

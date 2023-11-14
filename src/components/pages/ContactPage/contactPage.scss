@@ -1,0 +1,9 @@
+@import '../../../style/variables';
+
+.contact {
+	display: grid;
+	grid-template: 40.6px auto / 311px 1fr 1fr;
+	&__side-bar {
+		grid-row: 1 / 3;
+	}
+}
