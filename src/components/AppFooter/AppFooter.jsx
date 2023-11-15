@@ -8,7 +8,7 @@ import './appFooter.scss';
 
 const AppFooter = () => {
 	return (
-		<header className="footer">
+		<footer className="footer">
 			<div className="footer__text">
 				find me in:
 			</div>
@@ -26,7 +26,7 @@ const AppFooter = () => {
 				</div>
 				<img src={gitHubIconSrc} alt="github" className="footer__user-icon"/>
 			</Link>
-		</header>
+		</footer>
 	);
 }
 

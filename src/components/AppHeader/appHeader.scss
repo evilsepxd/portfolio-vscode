@@ -31,6 +31,10 @@
 	grid-template: auto / 311px auto 153px;
 
 	border-bottom: 1px solid $border-color;
+	transition: .3s all;
+	&.active {
+		background: $main-bg-color;
+	}
 	&__name {
 		padding: 17px 22px;
 		border-right: 1px solid $border-color;
@@ -64,4 +68,58 @@
 			color: $link-active-color;
 		}
 	}
+}
+
+@media (max-width: 1200px) {
+	.header {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		padding: 17px 22px;
+		&__name {
+			border-right: none;
+			padding: 0;
+		}
+		&__menu {
+			position: absolute;
+			top: 0;
+			z-index: 100;
+
+			margin-top: 55.6px;
+			margin-bottom: 50.8px;
+
+
+			width: 100%;
+			height: 100%;
+			background: $main-bg-color;
+			&-link {
+				color: $link-active-color;
+				display: block;
+				padding: 17px 18px;
+				border-bottom: 1px solid $border-color;
+			}
+		}
+	}
+}
+
+.menu-enter {
+	opacity: 0;
+	transform: translateX(-100%);
+}
+ 
+.menu-enter-active {
+	opacity: 1;
+	transform: translateX(0);
+	transition: all .3s;
+}
+ 
+.menu-exit {
+	opacity: 1;
+	transform: translateX(0);
+}
+ 
+.menu-exit-active {
+	opacity: 0;
+	transform: translateX(100%);
+	transition: all .3s;
 }
