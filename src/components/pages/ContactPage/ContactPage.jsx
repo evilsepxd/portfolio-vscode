@@ -1,7 +1,6 @@
 
 
 import { useSelector } from 'react-redux';
-import { useRef } from 'react';
 import { SwitchTransition, CSSTransition } from 'react-transition-group';
 
 import { getStatus } from './contactSlice';

@@ -4,7 +4,9 @@ import './spinner.scss';
 
 function Spinner() {
 	return (
-		<img src={spinnerIconSrc} alt="spinner" className="spinner" />
+		<div className="spinner">
+			<img src={spinnerIconSrc} alt="spinner" className="spinner__img" />
+		</div>
 	);
 }
 

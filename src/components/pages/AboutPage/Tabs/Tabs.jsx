@@ -4,8 +4,6 @@ import { setCurrentFile, deleteOpenedFile } from '../../../pages/AboutPage/about
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
 
-import './tabs.scss';
-
 function Tabs() {
 	const dispatch = useDispatch();
 	const openedFiles = useSelector(state => state.about.openedFiles);
