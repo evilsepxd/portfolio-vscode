@@ -24,4 +24,8 @@
 		text-align: right;
 		align-self: start;
 	}
+	&__line-comment:last-child {
+		position: relative;
+		left: 9px;
+	}
 }

@@ -1,26 +1,26 @@
 
-import { setCurrentFile, deleteOpenedFile } from '../pages/AboutPage/aboutSlice';
+import { setCurrentFile, deleteOpenedFile } from '../../../pages/AboutPage/aboutSlice';
 
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
 
 import './tabs.scss';
 
-function Tabs({ files, className }) {
+function Tabs() {
 	const dispatch = useDispatch();
 	const openedFiles = useSelector(state => state.about.openedFiles);
 	const currentFile = useSelector(state => state.about.currentFile);
 
 	useEffect(() => {
 		if (openedFiles.indexOf(currentFile) < 0) {
-			dispatch(setCurrentFile(files[0]));
+			dispatch(setCurrentFile(openedFiles[0]));
 		}
-	}, [files]);
+	}, [openedFiles]);
 
 	return (
-			<div className={`tabs ${className}`}>
+			<div className='tabs'>
 				{
-					files.map((file, i) => <Tab text={file} key={i} />)
+					openedFiles.map((file, i) => <Tab text={file} key={i} />)
 				}
 			</div>
 	);

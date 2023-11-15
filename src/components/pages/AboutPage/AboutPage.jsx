@@ -1,13 +1,13 @@
 
 
 import { useRef } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 
 import { changeInfoType } from './aboutSlice';
 
 import Folders from './Folders/Folders';
 import Contacts from '../../Contacts/Contacts';
-import Tabs from '../../Tabs/Tabs';
+import Tabs from './Tabs/Tabs';
 import InfoBlock from './InfoBlock/InfoBlock';
 import Snippets from './Snippets/Snippets';
 
@@ -18,8 +18,6 @@ function AboutPage() {
 
 	const dispatch = useDispatch();
 	const btnRefs = useRef([]);
-
-	const openedFiles = useSelector(state => state.about.openedFiles);
 
 	// nav - навигация между блоками с информацией. управляет стейтом, который меняет отображение блоков с инфой
 	// Folders - папками с информацией, меняется в завис. от стейта
@@ -91,7 +89,7 @@ function AboutPage() {
 				<Contacts />
 			</div>
 
-			<Tabs files={openedFiles} className='about__tabs' />
+			<Tabs />
 
 			<InfoBlock />
 
