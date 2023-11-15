@@ -2,11 +2,14 @@ import { useMediaQuery } from 'react-responsive';
 
 import SnakeGame from '../../SnakeGame/SnakeGame';
 
+import bgGreenBlurSrc from '../../../assets/img/helloPage/bg-green-blur.svg';
+import bgBlueBlurSrc from '../../../assets/img/helloPage/bg-blue-blur.svg';
+
 import './helloPage.scss';
 
 const HelloPage = () => {
 	const isMobile = useMediaQuery({
-		query: '(min-width: 992px)'
+		query: '(max-width: 1200px)'
 	});
 
 	return (
@@ -24,19 +27,34 @@ const HelloPage = () => {
 			</div>
 			<div className="hello__descrs">
 				<div className="hello__descr">
-					&#47;&#47; complete the game to continue <br/>
-					&#47;&#47; you can also see it on my Github page
+					{
+						isMobile ?
+							<>
+								&#47;&#47; find my profile on Github:
+							</> :
+							<>
+								&#47;&#47; complete the game to continue <br/>
+								&#47;&#47; you can also see it on my Github page
+							</>
+					}
 				</div>
 				<div className="hello__link">
 					<span className="const">const</span>
 					<span className="const-name"> githubLink </span>
 					<span>= </span>
 					<a href='https://evilsepxd.github.io/snake/' className="const-value">
-						&quot;https://evilsepxd.github.io/snake/&quot;
+						&quot;https://{ isMobile && <br/> }evilsepxd.github.io/snake/&quot;
 					</a>
 				</div>
 			</div>
-			{ isMobile && <SnakeGame/> }
+			{ !isMobile && <SnakeGame/> }
+			{
+				isMobile &&
+				<>
+					<img src={bgGreenBlurSrc} alt="bg-blur" className="hello__bg hello__bg_green" />
+					<img src={bgBlueBlurSrc} alt="bg-blur" className="hello__bg hello__bg_blue" />
+				</>
+			}
 		</section>
 	);
 }
