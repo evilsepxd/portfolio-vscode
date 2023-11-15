@@ -1,10 +1,14 @@
-
+import { useMediaQuery } from 'react-responsive';
 
 import SnakeGame from '../../SnakeGame/SnakeGame';
 
 import './helloPage.scss';
 
 const HelloPage = () => {
+	const isMobile = useMediaQuery({
+		query: '(min-width: 992px)'
+	});
+
 	return (
 		<section className="hello page">
 			<div className="hello__titles">
@@ -32,7 +36,7 @@ const HelloPage = () => {
 					</a>
 				</div>
 			</div>
-			<SnakeGame/>
+			{ isMobile && <SnakeGame/> }
 		</section>
 	);
 }
