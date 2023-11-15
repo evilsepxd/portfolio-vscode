@@ -22,7 +22,7 @@ const AppHeader = () => {
 	}
 
 	return (
-		<header className={`header${menuOpened ? ' active' : ''}`}>
+		<header className='header'>
 			<div className="header__name">
 				peter-koval
 			</div>

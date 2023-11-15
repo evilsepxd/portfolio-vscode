@@ -5,12 +5,13 @@
 	bottom: 0;
 	left: 0;
 	width: 100%;
-	z-index: 10;
+	z-index: 101;
 	
 	display: grid;
 	grid-template: auto / 151px auto 161px;
 
 	border-top: 1px solid $border-color;
+	transition: .3s all;
 	&__text {
 		padding: 15px 22px;
 		border-right: 1px solid $border-color;
@@ -44,5 +45,14 @@
 	&__icon {
 		width: 24px;
 		height: 24px;
+	}
+}
+
+@media (max-width: 1200px) {
+	.footer {
+		display: flex;
+		&__text {
+			width: 100%;
+		}
 	}
 }
