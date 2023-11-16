@@ -51,3 +51,47 @@
 		border-left: 1px solid $border-color;
 	}
 }
+
+@media (max-width: 1200px) {
+	.about {
+		padding-left: 0;
+		display: block;
+		overflow: auto;
+		&__title {
+			margin: 27px 0 29px 21px;
+			
+			color: $link-active-color;
+			font-size: 14px;
+			font-weight: 400;
+			line-height: 140%;
+		}
+		&__nav {
+			position: static;
+			padding: 0;
+			gap: 3px;
+		}
+		&__navlink {
+			justify-content: start;
+			padding-left: 27px;
+			gap: 12px;
+
+			color: $link-active-color;
+			background: $border-color;
+			&-icon {
+				transform: rotate(-90deg);
+				transition: .3s all;
+			}
+			&.active {
+				.about__navlink-icon {
+					transform: rotate(0);
+				}
+				& + .folders {
+					grid-template-rows: 1fr;
+					.folders__list {
+						padding: 20px 30px;
+					}
+				}
+			}
+		}
+	}
+}

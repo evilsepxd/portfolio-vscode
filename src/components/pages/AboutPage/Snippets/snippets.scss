@@ -114,3 +114,27 @@
 		}
 	}
 }
+
+@media (max-width: 1200px) {
+	.snippets {
+		border-left: none;
+		padding: 38px 27px;
+		&__comment {
+			color: $link-active-color;
+		}
+		&__details {
+			padding-right: 32px;
+		}
+		&__text {
+			.rc-hl-code-line {
+				white-space: nowrap;
+				.ws {
+					white-space: pre;
+				}
+			}
+			.main-highlighter-relative {
+				padding: 24px;
+			}
+		}
+	}
+}

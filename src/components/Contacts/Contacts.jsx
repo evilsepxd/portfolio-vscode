@@ -1,4 +1,5 @@
 import { useRef, useState } from 'react';
+import { useMediaQuery } from 'react-responsive';
 
 import menuArrowIconSrc from '../../assets/icons/aboutPage/menu-arrow.svg';
 import mailIconSrc from '../../assets/icons/aboutPage/mail-icon.svg';
@@ -7,10 +8,14 @@ import phoneIconSrc from '../../assets/icons/aboutPage/phone-icon.svg';
 import './contacts.scss';
 
 function Contacts() {
+	const isMobile = useMediaQuery({
+		query: '(max-width: 1200px)'
+	});
+
 	const containerRef = useRef(null);
 	const btnRef = useRef(null);
 	
-	const [contState, setContState] = useState(true);
+	const [contState, setContState] = useState(isMobile ? false : true);
 
 	const handleClick = () => {
 		setContState(old => !old);

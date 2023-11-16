@@ -1,4 +1,5 @@
 import { useMediaQuery } from 'react-responsive';
+import { useRef, useEffect } from 'react';
 
 import SnakeGame from '../../SnakeGame/SnakeGame';
 
@@ -7,13 +8,20 @@ import bgBlueBlurSrc from '../../../assets/img/helloPage/bg-blue-blur.svg';
 
 import './helloPage.scss';
 
-const HelloPage = () => {
+const HelloPage = ({ setHeader, setFooter }) => {
 	const isMobile = useMediaQuery({
 		query: '(max-width: 1200px)'
 	});
 
+	const pageRef = useRef(null);
+
+	useEffect(() => {
+		setHeader(true);
+		setFooter(true);
+	}, []);
+
 	return (
-		<section className="hello page">
+		<section className="hello page" ref={pageRef}>
 			<div className="hello__titles">
 				<h2 className="hello__subtitle">
 					Hi all. I am

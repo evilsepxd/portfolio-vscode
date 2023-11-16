@@ -118,3 +118,27 @@
 	transform: translateX(100%);
 	transition: all .3s;
 }
+
+
+
+.header-enter {
+	opacity: 0;
+	transform: translateY(-100%);
+}
+ 
+.header-enter-active {
+	opacity: 1;
+	transform: translateY(0);
+	transition: all 300ms;
+}
+ 
+.header-exit {
+	opacity: 1;
+	transform: translateY(0);
+}
+ 
+.header-exit-active {
+	opacity: 0;
+	transform: translateY(-100%);
+	transition: all 300ms;
+}

@@ -90,3 +90,15 @@
 		}
 	}
 }
+
+@media (max-width: 1200px) {
+	.folders {
+		display: grid;
+		grid-template-rows: 0fr;
+		transition: .3s all;
+		&__list {
+			padding: 0;
+			transition: .3s all;
+		}
+	}
+}

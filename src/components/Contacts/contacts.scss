@@ -42,3 +42,15 @@
 		}
 	}
 }
+
+@media (max-width: 1200px) {
+	.contacts {
+		&__btn {
+			padding: 0;
+			padding-left: 27px;
+			border-bottom: none;
+			color: $link-active-color;
+			background: $border-color;
+		}
+	}
+}
