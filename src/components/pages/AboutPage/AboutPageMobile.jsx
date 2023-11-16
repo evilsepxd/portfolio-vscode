@@ -1,6 +1,6 @@
+import useHeaderFooterCollapse from '../../../hooks/useHeaderFooterCollapse';
 
-
-import { useRef, useEffect } from 'react';
+import { useRef } from 'react';
 import { useDispatch } from 'react-redux';
 
 import { changeInfoType } from './aboutSlice';
@@ -21,6 +21,8 @@ function AboutPage({ setHeader, setFooter }) {
 	const btnRefs = useRef([]);
 	const pageRef = useRef(null);
 
+	useHeaderFooterCollapse(pageRef, setHeader, setFooter);
+
 	const handleClick = (e, dataType) => {
 		const t = e.target;
 
@@ -32,27 +34,6 @@ function AboutPage({ setHeader, setFooter }) {
 			}
 		});
 	}
-
-	useEffect(() => {
-		setFooter(false);
-		pageRef.current.addEventListener('scroll', (e) => {
-			const scrollTop = pageRef.current.scrollTop;
-			const scrollHeight = pageRef.current.scrollHeight;
-			const clientHeight = pageRef.current.clientHeight;
-
-			if (scrollTop + clientHeight + 5 > scrollHeight) {
-				setFooter(true);
-			} else {
-				setFooter(false);
-			}
-
-			if (scrollTop >= 10) {
-				setHeader(false);
-			} else {
-				setHeader(true);
-			}
-		});
-	}, []);
 
 	return (
 		<section className="about page" ref={pageRef}>
