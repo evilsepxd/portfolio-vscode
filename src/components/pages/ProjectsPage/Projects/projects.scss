@@ -81,7 +81,7 @@
 	}
 	&__descr {
 		position: relative;
-		padding: 24px 32px 32px;
+		padding: 24px 32px 93px;
 		border-radius: 0 0 15px 15px;
 		min-height: 166px;
 
@@ -101,5 +101,28 @@
 		border-radius: 8px;
 		background: $btn-bg-color;
 		color: $link-active-color;
+	}
+}
+
+@media (max-width: 1200px) {
+	.projects {
+		&__name {
+			margin: 8px 27px 0;
+			color: $link-active-color;
+			font-size: 16px;
+			font-weight: 400;
+			line-height: 140%;
+			span {
+				color: $main-text-color;
+			}
+		}
+		&__inner {
+			padding: 17px 27px;
+			justify-content: center;
+			gap: 20px;
+		}
+		&__item {
+			min-width: 291px;
+		}
 	}
 }

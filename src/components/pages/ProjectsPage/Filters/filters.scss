@@ -97,3 +97,13 @@
 		}
 	}
 }
+
+@media (max-width: 1200px) {
+	.filters {
+		&-title {
+			background: $border-color;
+			padding: 5px 0 5px 27px;
+			border-right: none;
+		}
+	}
+}

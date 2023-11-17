@@ -7,7 +7,6 @@ import './projectsPage.scss';
 
 function ProjectsPage() {
 
-
 	return (
 		<section className="projects page">
 			<Filters />

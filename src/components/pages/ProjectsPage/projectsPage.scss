@@ -4,3 +4,10 @@
 	display: grid;
 	grid-template: 40.6px auto / 311px auto;
 }
+
+@media (max-width: 1200px) {
+	.projects {
+		display: block;
+		overflow: auto;
+	}
+}

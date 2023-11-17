@@ -13,6 +13,7 @@ const HelloPage = lazy(() => import('../pages/HelloPage/HelloPage'));
 const AboutPage = lazy(() => import('../pages/AboutPage/AboutPage'));
 const AboutPageMobile = lazy(() => import('../pages/AboutPage/AboutPageMobile'));
 const ProjectsPage = lazy(() => import('../pages/ProjectsPage/ProjectsPage'));
+const ProjectsPageMobile = lazy(() => import('../pages/ProjectsPage/ProjectsPageMobile'));
 const ContactPage = lazy(() => import('../pages/ContactPage/ContactPage'));
 
 import './app.scss';	// CSSTransition styles
@@ -47,7 +48,11 @@ function App() {
 									? <AboutPageMobile setHeader={setHeaderVisible} setFooter={setFooterVisible} />
 									: <AboutPage/>
 								} />
-								<Route path='/projects' element={<ProjectsPage/>} />
+								<Route path='/projects' element={
+									isMobile
+									? <ProjectsPageMobile setHeader={setHeaderVisible} setFooter={setFooterVisible} />
+									: <ProjectsPage/>
+								} />
 								<Route path='/contact' element={<ContactPage/>} />
 							</Routes>
 						</CSSTransition>

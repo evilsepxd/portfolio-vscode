@@ -37,7 +37,7 @@ function AboutPage({ setHeader, setFooter }) {
 
 	return (
 		<section className="about page" ref={pageRef}>
-			<h1 className="about__title">_about-me</h1>
+			<h1 className="page__title">_about-me</h1>
 			<nav className="about__nav">
 				<button 
 					className='about__navlink'
