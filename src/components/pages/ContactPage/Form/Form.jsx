@@ -25,7 +25,7 @@ function Form() {
 
 	const dispatch = useDispatch();
 
-	const onSubmit = (e) => {
+	const onSubmit = () => {
 		setBtnDisabled(true);
 		setTimeout(() => {
 			dispatch(setStatus('success'));
@@ -53,18 +53,20 @@ function Form() {
 					value={name}
 					id='entry.1106056267'
 					onChange={(e) => dispatch(setName(e.target.value))}
+					required
 				/>
 				</div>
 
 				<div className="contact__form-item">
 					<label htmlFor="entry.1525080091" className='contact__label'>_email:</label>
 					<input
-						type="text"
+						type="email"
 						name='entry.1525080091'
 						className='contact__input'
 						value={email}
 						id='entry.1525080091'
 						onChange={(e) => dispatch(setEmail(e.target.value))}
+						required
 					/>
 				</div>
 
@@ -76,6 +78,7 @@ function Form() {
 						className='contact__input contact__input_textarea'
 						value={message}
 						onChange={(e) => dispatch(setMessage(e.target.value))}
+						required
 					/>
 				</div>
 
