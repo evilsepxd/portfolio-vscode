@@ -44,90 +44,90 @@ function SnakeGame() {
 	const [food, setFood] = useState(null);
 	const [mode, setMode] = useState('start');
 
+	function game() {
+
+		if (!canvas) return;
+		const ctx = canvas.current.getContext('2d');
+	
+		const canvasWidth = canvas.current.width,
+			canvasHeight = canvas.current.height;
+	
+		setSnake(new Snake(snakeInit.x, snakeInit.y, ctx, canvasWidth, canvasHeight));
+		setFood(new Food(foodInit.x, foodInit.y, ctx, canvasWidth, canvasHeight));
+	
+		listenForDirectionChange(snake);
+
+
+		switch (mode) {
+			case 'start':
+				food?.draw();
+				snake?.draw();
+
+				startBtnRef.current?.addEventListener('click', () => {
+					setMode('game');
+					animationId.current = requestAnimationFrame(game);
+				});
+				break;
+
+			case 'end':
+				const endBtn = endMode(false);
+
+				endBtn.addEventListener('click', () => {
+					reset();
+
+					animationId.current = requestAnimationFrame(game);
+				});
+
+				break;
+
+			case 'win':
+				const winBtn = endMode(true);
+
+				winBtn.addEventListener('click', () => {
+					reset();
+
+					animationId.current = requestAnimationFrame(game);
+				});
+
+				break;
+
+			case 'game':
+				ctx.clearRect(0, 0, canvasWidth, canvasHeight);
+
+				food.draw();
+				snake.draw();
+				snake.move();
+		
+				if (snake.isCollisedWithFood(food.x, food.y, food.radius)) {
+					foodAmount.current++;
+					if (foodAmount.current === foodAmountInit) {
+						setMode('win');
+					} else {
+						food.setNewFood();
+						snake.increazeSize();
+					}
+				}
+				
+				if (snake.isCoillisedWithBorder() || snake.isCollisedWithItself()) {
+					setMode('end');
+				}
+
+				animationId.current = requestAnimationFrame(game);
+				break;
+		}
+
+
+		function reset() {
+			setMode('game');
+			snake.reset(snakeInit.x, snakeInit.y);
+			food.reset(foodInit.x, foodInit.y);
+			foodAmount.current = 0;
+		}
+	}
+
 	useEffect(() => {
 		animationId.current = requestAnimationFrame(game);
 
-		function game() {
-
-			if (!canvas) return;
-			const ctx = canvas.current.getContext('2d');
-		
-			const canvasWidth = canvas.current.width,
-				canvasHeight = canvas.current.height;
-		
-			setSnake(new Snake(snakeInit.x, snakeInit.y, ctx, canvasWidth, canvasHeight));
-			setFood(new Food(foodInit.x, foodInit.y, ctx, canvasWidth, canvasHeight));
-		
-			listenForDirectionChange(snake);
-	
-
-			switch (mode) {
-				case 'start':
-					food?.draw();
-					snake?.draw();
-	
-					startBtnRef.current.addEventListener('click', () => {
-						setMode('game');
-						animationId.current = requestAnimationFrame(game);
-					});
-					break;
-	
-				case 'end':
-					const endBtn = endMode(false);
-	
-					endBtn.addEventListener('click', () => {
-						reset();
-	
-						animationId.current = requestAnimationFrame(game);
-					});
-	
-					break;
-	
-				case 'win':
-					const winBtn = endMode(true);
-	
-					winBtn.addEventListener('click', () => {
-						reset();
-	
-						animationId.current = requestAnimationFrame(game);
-					});
-	
-					break;
-	
-				case 'game':
-					ctx.clearRect(0, 0, canvasWidth, canvasHeight);
-	
-					food.draw();
-					snake.draw();
-					snake.move();
-			
-					if (snake.isCollisedWithFood(food.x, food.y, food.radius)) {
-						foodAmount.current++;
-						if (foodAmount.current === foodAmountInit) {
-							setMode('win');
-						} else {
-							food.setNewFood();
-							snake.increazeSize();
-						}
-					}
-					
-					if (snake.isCoillisedWithBorder() || snake.isCollisedWithItself()) {
-						setMode('end');
-					}
-	
-					animationId.current = requestAnimationFrame(game);
-					break;
-			}
-	
-	
-			function reset() {
-				setMode('game');
-				snake.reset(snakeInit.x, snakeInit.y);
-				food.reset(foodInit.x, foodInit.y);
-				setFoodAmount(0);
-			}
-		}
-		
 		return () => {
 			cancelAnimationFrame(animationId.current);
 		}
@@ -148,13 +148,12 @@ function SnakeGame() {
 		return resFood;
 	}
 	
-	const renderMode = () => {
-		switch (mode) {
-			case 'start':
+	const renderStartMode = () => {
+			if (mode === 'start') {
 				return (
 					<StartMode btnRef={startBtnRef} />
 				);
-		}
+			}
 	}
 
 
@@ -165,7 +164,7 @@ function SnakeGame() {
 
 			<div className="game__field">
 				<canvas className="canvas" ref={canvas} width="240" height="405"></canvas>
-				{ renderMode() }
+				{ renderStartMode() }
 			</div>
 
 			<img src={boltUpLeftSrc} alt="bolt" className="game__bolt game__bolt_up-left"/>

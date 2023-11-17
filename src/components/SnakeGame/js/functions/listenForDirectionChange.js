@@ -5,22 +5,22 @@ function listenForDirectionChange(snake) {
 		arrowRight = document.querySelector('.arrows__arrow_right');
 
 	arrowTop.addEventListener('click', () => {
-		if (snake.dir !== 'bot') {
+		if (snake && snake.dir !== 'bot') {
 			snake.changeDirection('top');
 		}
 	});
 	arrowBot.addEventListener('click', () => {
-		if (snake.dir !== 'top') {
+		if (snake && snake.dir !== 'top') {
 			snake.changeDirection('bot');
 		}
 	});
 	arrowLeft.addEventListener('click', () => {
-		if (snake.dir !== 'right') {
+		if (snake && snake.dir !== 'right') {
 			snake.changeDirection('left');
 		}
 	});
 	arrowRight.addEventListener('click', () => {
-		if (snake.dir !== 'left') {
+		if (snake && snake.dir !== 'left') {
 			snake.changeDirection('right');
 		}
 	});
@@ -29,25 +29,25 @@ function listenForDirectionChange(snake) {
 		switch (e.key) {
 			case 'ArrowUp':
 				e.preventDefault();
-				if (snake.dir !== 'bot') {
+				if (snake && snake.dir !== 'bot') {
 					snake.changeDirection('top');
 				}
 				break;
 			case 'ArrowDown':
 				e.preventDefault();
-				if (snake.dir !== 'top') {
+				if (snake && snake.dir !== 'top') {
 					snake.changeDirection('bot');
 				}
 				break;
 			case 'ArrowLeft':
 				e.preventDefault();
-				if (snake.dir !== 'right') {
+				if (snake && snake.dir !== 'right') {
 					snake.changeDirection('left');
 				}
 				break;
 			case 'ArrowRight':
 				e.preventDefault();
-				if (snake.dir !== 'left') {
+				if (snake && snake.dir !== 'left') {
 					snake.changeDirection('right');
 				}
 				break;
