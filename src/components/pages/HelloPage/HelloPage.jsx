@@ -16,8 +16,10 @@ const HelloPage = ({ setHeader, setFooter }) => {
 	const pageRef = useRef(null);
 
 	useEffect(() => {
-		setHeader(true);
-		setFooter(true);
+		if (isMobile) {
+			setHeader(true);
+			setFooter(true);
+		}
 	}, []);
 
 	return (
