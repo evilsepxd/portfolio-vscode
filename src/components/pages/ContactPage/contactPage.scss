@@ -79,6 +79,26 @@
 	}
 }
 
+@media (max-width: 1200px) {
+	.contact {
+		display: block;
+		overflow: auto;
+		&__side-bar {
+			border-right: none;
+			display: flex;
+			flex-direction: column;
+			gap: 3px;
+		}
+		&__form {
+			padding: 42px 27px 38px;
+			overflow: hidden;
+		}
+		&__input {
+			min-width: 266px;
+		}
+	}
+}
+
 .forms-enter {
 	transform: translateX(100%);
 	opacity: 0;

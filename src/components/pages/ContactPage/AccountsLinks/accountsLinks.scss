@@ -53,3 +53,16 @@
 		}
 	}
 }
+
+@media (max-width: 1200px) {
+	.account-links {
+		&__btn {
+			border: none;
+			padding: 0;
+			padding: 5px 0 5px 27px;
+			border-bottom: none;
+			color: $link-active-color;
+			background: $border-color;
+		}
+	}
+}

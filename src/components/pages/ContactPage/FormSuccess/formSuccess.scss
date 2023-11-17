@@ -23,3 +23,10 @@
 		margin-top: 37px;
 	}
 }
+
+@media (max-width: 1200px) {
+	.form-success {
+		padding-top: 42px;
+		display: block;
+	}
+}
