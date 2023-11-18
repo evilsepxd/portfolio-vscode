@@ -1,0 +1,1 @@
+import{R as e,A as u,B as c}from"./index-0022d0d2.js";function r(t=e){const o=t===e?u:c(t);return function(){const{store:s}=o();return s}}const a=r();function i(t=e){const o=t===e?a:r(t);return function(){return o().dispatch}}const p=i(),x="/portfolio-vscode/assets/menu-arrow-a407e5f3.svg";export{x as m,p as u};
