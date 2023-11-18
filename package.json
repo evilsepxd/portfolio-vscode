@@ -8,10 +8,11 @@
     "build": "vite build",
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
-    "serve": "vite preview"
+    "deploy": "npm run build && gh-pages -d dist"
   },
   "dependencies": {
     "@reduxjs/toolkit": "^1.9.7",
+    "gh-pages": "^6.0.0",
     "rc-highlight": "^2.5.6",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",

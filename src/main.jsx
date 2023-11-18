@@ -10,7 +10,7 @@ import './style/index.scss'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
 	<Provider store={store}>
-		<Router>
+		<Router basename='/portfolio-vscode'>
 			<App />
 		</Router>
 	</Provider>
