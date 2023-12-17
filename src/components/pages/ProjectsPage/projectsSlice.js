@@ -5,12 +5,14 @@ import CSSIconSrc from '../../../assets/icons/projectsPage/css.svg';
 import JSIconSrc from '../../../assets/icons/projectsPage/js.svg';
 import ReactIconSrc from '../../../assets/icons/projectsPage/react.svg';
 import ReduxIconSrc from '../../../assets/icons/projectsPage/redux.svg';
+import TSIconSrc from '../../../assets/icons/projectsPage/ts.svg'
 
 import HTMLDarkIconSrc from '../../../assets/icons/projectsPage/html-dark.svg';
 import CSSDarkIconSrc from '../../../assets/icons/projectsPage/css-dark.svg';
 import JSDarkIconSrc from '../../../assets/icons/projectsPage/js-dark.svg';
 import ReactDarkIconSrc from '../../../assets/icons/projectsPage/react-dark.svg';
 import ReduxDarkIconSrc from '../../../assets/icons/projectsPage/redux-dark.svg';
+import TSDarkIconSrc from '../../../assets/icons/projectsPage/ts-dark.svg'
 
 import rickAndMortyImgSrc from '../../../assets/img/projectsPage/rick-and-morty.webp';
 import heroAdminPanelImgSrc from '../../../assets/img/projectsPage/hero_admin_panel_template.webp';
@@ -22,6 +24,7 @@ import createxImgSrc from '../../../assets/img/projectsPage/createx.webp';
 import castawayImgSrc from '../../../assets/img/projectsPage/castaway.webp';
 import cyberpunkImgSrc from '../../../assets/img/projectsPage/cyberpunk.webp';
 import runsmartImgSrc from '../../../assets/img/projectsPage/runsmart.webp';
+import weatherImgSrc from '../../../assets/img/projectsPage/weather.webp';
 
 const initialState = {
 	filters: [
@@ -54,6 +57,12 @@ const initialState = {
 			iconSrc: ReduxIconSrc,
 			darkIconSrc: ReduxDarkIconSrc,
 			iconBgClass: 'projects-filters__item_Redux'
+		},
+		{
+			name: 'TS',
+			iconSrc: TSIconSrc,
+			darkIconSrc: TSDarkIconSrc,
+			iconBgClass: 'projects-filters__item_TS'
 		}
 	],
 	activeFilters: [
@@ -71,6 +80,13 @@ const initialState = {
 		}
 	],
 	projects: [
+		{
+			name: '_weather',
+			descr: 'Проект для практики в TypeScript',
+			link: 'https://evilsepxd.github.io/weather/',
+			imgSrc: weatherImgSrc,
+			filters: ['HTML', 'CSS', 'JS', 'React', 'Redux', 'TS']
+		},
 		{
 			name: '_rick-and-morty',
 			descr: 'Веб-приложение, базирующееся на RickAndMorty API',
